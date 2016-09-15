@@ -97,7 +97,8 @@ def bibjson_to_html(bibjson_filename, bibtex_filename):
         title = bib_entry['title']
         # XXX: regex is unsafe against malicious code. unlikely issue here.
         title = re.sub('<[^<]+?>', '', title)
-        title = title[:-1]
+        if title.endswith("."):
+            title = title[:-1]
         title = (
             "<span class=\"title\" style=\"color: #2ebbbd;\">"
             "<a href = \"%s\">%s</a></span>" % (url, title))
