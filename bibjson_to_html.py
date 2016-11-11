@@ -41,7 +41,7 @@ def bibjson_to_html(bibjson_filename, bibtex_filename):
                     tag = l.split(" ")[2]
                     tag = tag[1:-3]
                     tag_list = tag.split(",")
-                    tag_list = [t.split("-")[1] for t in tag_list]
+                    tag_list = [t.split("-")[1] for t in tag_list if t.startswith("MMBIOS")]
                 elif ("pmid" in l):
                     pmid = l.split(" ")[2]
                     pmid = "".join(i for i in pmid if i.isdigit())
@@ -70,8 +70,8 @@ def bibjson_to_html(bibjson_filename, bibtex_filename):
         if (year_int != prev_year_int):
             if (prev_year_int != 0):
                 html_str += "\t</ul>\n</div>\n"
-            html_str += "<h1 id=\"%d\"><span style=\"color: #993300;\">%d\
-                         </span>\n</h1>\n" % (year_int, year_int)
+            html_str += ("<h1 id=\"%d\"><span style=\"color: #993300;\">%d"
+                         "</span>\n</h1>\n" % (year_int, year_int))
             html_str += "<div class=\"biblio\">\n\t<ul>\n"
         year = "<span class=\"pubdate\">(%d)</span>" % year_int
         authors = ""
@@ -93,25 +93,44 @@ def bibjson_to_html(bibjson_filename, bibtex_filename):
         authors = authors[:-2]
         journal = bib_entry['container-title']
         journal = "<span class=\"journal\">%s</span>" % journal
-        url = bib_entry['URL'].split(" ")[0]
+        try:
+            url = bib_entry['URL'].split(" ")[0]
+        except:
+            url = None
+            print("Warning: no URL")
         title = bib_entry['title']
         # XXX: regex is unsafe against malicious code. unlikely issue here.
         title = re.sub('<[^<]+?>', '', title)
         if title.endswith("."):
             title = title[:-1]
-        title = (
-            "<span class=\"title\" style=\"color: #2ebbbd;\">"
-            "<a href = \"%s\">%s</a></span>" % (url, title))
-        vol = bib_entry['volume']
+        if url:
+            title = (
+                "<span class=\"title\" style=\"color: #2ebbbd;\">"
+                "<a href = \"%s\">%s</a></span>" % (url, title))
+        else:
+            title = (
+                "<span class=\"title\" style=\"color: #2ebbbd;\">"
+                "%s</span>" % (title))
         try:
-            issue = bib_entry['issue']
-            vol_issue = "<span class=\"volume\">%s(%s):</span>" % (vol, issue)
+            vol = bib_entry['volume']
+            try:
+                issue = bib_entry['issue']
+                vol_issue = "<span class=\"volume\">%s(%s):</span>" % (vol, issue)
 
+            except KeyError:
+                vol_issue = "<span class=\"volume\">%s:</span>" % (vol)
         except KeyError:
-            vol_issue = "<span class=\"volume\">%s:</span>" % (vol)
+            vol_issue = ""
+            print("Warning: no volume listed for the following article:\n%s"
+                  "\n" % bib_entry['title'])
         pages = bib_entry['page']
         pages = "<span class=\"mpgn\">%s</span>" % pages
-        pmid = bib_entry['PMID']
+        try:
+            pmid = bib_entry['PMID']
+        except KeyError:
+            pmid = None
+            print("Warning: no PMID for the following article:\n%s\n" %
+                  bib_entry['title'])
         tags = ""
         if pmid in tag_dict:
             for tag in tag_dict[pmid]:
@@ -127,9 +146,12 @@ def bibjson_to_html(bibjson_filename, bibtex_filename):
                 url = "http://mmbios.org/%s" % url
                 tags += (
                     "<a href=\"%s\" class=%s>%s</a> " % (url, tag_type, tag))
-        pmid = "<span class=\"pmid\">PMID:%s</span>" % pmid
-        doi = bib_entry['DOI']
-        entry = "<p>%s. %s %s. <i>%s</i>. %s%s. doi: %s. %s %s" % (
+        if pmid:
+            pmid = "<span class=\"pmid\">PMID:%s</span>" % pmid
+        else:
+            pmid = ""
+        doi = "doi: %s." % bib_entry['DOI']
+        entry = "<p>%s. %s %s. <i>%s</i>. %s%s. %s %s %s" % (
             authors, year, title, journal, vol_issue, pages, doi, pmid, tags)
         html_str += "\t\t<li>\n"
         html_str += "\t\t\t%s\n" % entry
