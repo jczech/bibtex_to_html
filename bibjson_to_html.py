@@ -27,7 +27,7 @@ def get_year(item):
     return int(item['issued']['date-parts'][0][0])
 
 
-def bibjson_to_html(bibjson_filename, bibtex_filename):
+def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
     # The bibjson file doesn't contain the mendeley tags, so we have to parse
     # them from the bibtex file. Maybe we should just get everything from the
     # bibtex file using pyparsing or something like that.
@@ -160,7 +160,7 @@ def bibjson_to_html(bibjson_filename, bibtex_filename):
         prev_year_int = year_int
     html_str += "\t</ul>\n</div>\n"
 
-    with open("output.html", 'w') as out:
+    with open(output_filename, 'w') as out:
         out.write(html_str)
 
 
@@ -169,12 +169,14 @@ def setup_argparser():
         description="Convert BibJSON to marked up HTML:")
     parser.add_argument("bibjson", help="BibJSON file to be converted")
     parser.add_argument("bibtex", help="BibTeX file to be converted")
+    parser.add_argument(
+        "-o", "--output", help="output html file")
     return parser.parse_args()
 
 
 def main():
     args = setup_argparser()
-    bibjson_to_html(args.bibjson, args.bibtex)
+    bibjson_to_html(args.bibjson, args.bibtex, args.output)
 
 
 if __name__ == "__main__":
