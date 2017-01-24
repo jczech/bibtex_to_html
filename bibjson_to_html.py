@@ -73,7 +73,7 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
             html_str += ("<h1 id=\"%d\"><span style=\"color: #993300;\">%d"
                          "</span>\n</h1>\n" % (year_int, year_int))
             html_str += "<div class=\"biblio\">\n\t<ul>\n"
-        year = "<span class=\"pubdate\">(%d)</span>" % year_int
+        year = "<span class=\"pubdate\">(%d) </span>" % year_int
         authors = ""
         # Convert authors name to "Surname First-Middle initials"
         # (e.g. "Czech JA")
