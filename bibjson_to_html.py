@@ -78,9 +78,9 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
         # Convert authors name to "Surname First-Middle initials"
         # (e.g. "Czech JA")
         for idx, author in enumerate(bib_entry['author']):
-            if (idx > 5):
-                authors += "et al  "
-                break
+            # if (idx > 5):
+            #     authors += "et al  "
+            #     break
             try:
                 surname = author['family']
                 initials = "".join([l for l in author['given'] if l in caps])
@@ -123,8 +123,11 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
             vol_issue = ""
             print("Warning: no volume listed for the following article:\n%s"
                   "\n" % bib_entry['title'])
-        pages = bib_entry['page']
-        pages = "<span class=\"mpgn\">%s</span>" % pages
+        try:
+            pages = bib_entry['page']
+            pages = "<span class=\"mpgn\">%s</span>" % pages
+        except KeyError:
+            pages = ""
         try:
             pmid = bib_entry['PMID']
         except KeyError:
@@ -150,7 +153,10 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
             pmid = "<span class=\"pmid\">PMID:%s</span>" % pmid
         else:
             pmid = ""
-        doi = "doi: %s." % bib_entry['DOI']
+        try:
+            doi = "doi: %s." % bib_entry['DOI']
+        except KeyError:
+            doi = ""
         entry = "<p>%s. %s %s. <i>%s</i>. %s%s. %s %s %s" % (
             authors, year, title, journal, vol_issue, pages, doi, pmid, tags)
         html_str += "\t\t<li>\n"
