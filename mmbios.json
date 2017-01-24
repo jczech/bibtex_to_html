@@ -1,37 +1,5 @@
 [
   {
-    "author": [
-      {
-        "family": "Ambler",
-        "given": "R."
-      },
-      {
-        "family": "Ruan",
-        "given": "X"
-      },
-      {
-        "family": "Murphy",
-        "given": "R.F."
-      },
-      {
-        "family": "Wulfing",
-        "given": "C."
-      }
-    ],
-    "container-title": "Methods Mol Biol",
-    "id": "Ambler2016",
-    "issued": {
-      "date-parts": [
-        [
-          2016.0
-        ]
-      ]
-    },
-    "keyword": "INPRESS,MMBIOS1-TRD3",
-    "title": "<span class=\"nocase\">Systems Imaging of the immune synapse</span>",
-    "type": "article-journal"
-  },
-  {
     "DOI": "10.1371/journal.pcbi.1004611",
     "ISSN": "15537358",
     "PMID": "26845334",
