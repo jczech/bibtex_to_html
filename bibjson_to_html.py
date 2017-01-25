@@ -48,6 +48,25 @@ def get_authors(authors_entry):
     return authors[:-2]
 
 
+def get_tags(tag_dict, pmid):
+    tags = ""
+    if pmid in tag_dict:
+        for tag in tag_dict[pmid]:
+            if tag.startswith("TRD"):
+                tag_type = "trd_pub"
+                url = link_dict[tag]
+            elif tag.startswith("DBP"):
+                tag_type = "dbp_pub"
+                url = link_dict[tag]
+            elif tag.startswith("CSP"):
+                tag_type = "csp_pub"
+                url = "research/collaboration-service"
+            url = "http://mmbios.org/%s" % url
+            tags += (
+                "<a href=\"%s\" class=%s>%s</a> " % (url, tag_type, tag))
+    return tags
+
+
 def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
     # The bibjson file doesn't contain the mendeley tags, so we have to parse
     # them from the bibtex file. Maybe we should just get everything from the
@@ -138,21 +157,7 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
             pmid = None
             print("Warning: no PMID for the following article:\n%s\n" %
                   bib_entry['title'])
-        tags = ""
-        if pmid in tag_dict:
-            for tag in tag_dict[pmid]:
-                if tag.startswith("TRD"):
-                    tag_type = "trd_pub"
-                    url = link_dict[tag]
-                elif tag.startswith("DBP"):
-                    tag_type = "dbp_pub"
-                    url = link_dict[tag]
-                elif tag.startswith("CSP"):
-                    tag_type = "csp_pub"
-                    url = "research/collaboration-service"
-                url = "http://mmbios.org/%s" % url
-                tags += (
-                    "<a href=\"%s\" class=%s>%s</a> " % (url, tag_type, tag))
+        tags = get_tags(tag_dict, pmid)
         if pmid:
             pmid = "<span class=\"pmid\">PMID:%s</span>" % pmid
         else:
