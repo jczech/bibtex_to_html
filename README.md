@@ -11,7 +11,11 @@ principle be made much more general.
 ## Dependencies
 
 Technically you only need Python3 to use this script, but if you're starting
-with a bibtex file, you also need pandoc-citeproc.
+with a bibtex file, you also need pandoc-citeproc to create the json file.
+
+On Ubuntu, you can just do the following:
+
+    sudo apt-get install pandoc-citeproc  
 
 ## How to use (starting with .bib file)
 
