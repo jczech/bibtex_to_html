@@ -166,7 +166,7 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
             doi = "doi: %s." % bib_entry['DOI']
         except KeyError:
             doi = ""
-        entry = "<p>%s. %s %s. <i>%s</i>. %s%s. %s %s %s" % (
+        entry = "<p>{}. {} {} <i>{}</i>. {}{}. {} {} {}".format(
             authors, year, title, journal, vol_issue, pages, doi, pmid, tags)
         html_str += "\t\t<li>\n"
         html_str += "\t\t\t%s\n" % entry
