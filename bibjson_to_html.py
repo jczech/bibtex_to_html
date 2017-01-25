@@ -27,6 +27,27 @@ def get_year(item):
     return int(item['issued']['date-parts'][0][0])
 
 
+def get_authors(authors_entry):
+    authors = ""
+    caps = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    # Convert authors name to "Surname First-Middle initials"
+    # (e.g. "Czech JA")
+    for idx, author in enumerate(authors_entry):
+        # if (idx > 5):
+        #     authors += "et al  "
+        #     break
+        try:
+            surname = author['family']
+            initials = "".join([l for l in author['given'] if l in caps])
+            authors += "<span class=\"author\">%s %s</span>, " % (
+                surname, initials)
+        # There's an entry but no surname, so it's prolly an institution
+        except KeyError:
+            authors += "<span class=\"author\">%s</span>, " % (
+                author['literal'])
+    return authors[:-2]
+
+
 def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
     # The bibjson file doesn't contain the mendeley tags, so we have to parse
     # them from the bibtex file. Maybe we should just get everything from the
@@ -59,7 +80,6 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
             print("Cannot load JSON file: %s" % e)
             return
 
-    caps = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     prev_year_int = 0
     html_str = "<meta charset=\"UTF-8\">\n"
     # Bibliography in reverse chronological order (newest first)
@@ -74,23 +94,7 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
                          "</span>\n</h1>\n" % (year_int, year_int))
             html_str += "<div class=\"biblio\">\n\t<ul>\n"
         year = "<span class=\"pubdate\">(%d) </span>" % year_int
-        authors = ""
-        # Convert authors name to "Surname First-Middle initials"
-        # (e.g. "Czech JA")
-        for idx, author in enumerate(bib_entry['author']):
-            # if (idx > 5):
-            #     authors += "et al  "
-            #     break
-            try:
-                surname = author['family']
-                initials = "".join([l for l in author['given'] if l in caps])
-                authors += "<span class=\"author\">%s %s</span>, " % (
-                    surname, initials)
-            # There's an entry but no surname, so it's prolly an institution
-            except KeyError:
-                authors += "<span class=\"author\">%s</span>, " % (
-                    author['literal'])
-        authors = authors[:-2]
+        authors = get_authors(bib_entry['author'])
         journal = bib_entry['container-title']
         journal = "<span class=\"journal\">%s</span>" % journal
         try:
