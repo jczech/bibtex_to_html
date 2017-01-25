@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from typing import List, Dict
 import json
 import re
 import argparse
@@ -23,17 +24,17 @@ link_dict = {
 }
 
 
-def generate_bib_data(bibjson_filename):
+def generate_bib_data(bibjson_filename: str) -> List:
     with open(bibjson_filename) as json_file:
         try:
             bib_data = json.load(json_file)
         except ValueError as e:
             print("Cannot load JSON file: %s" % e)
-            return
+            return []
     return bib_data
 
 
-def generate_tag_dict(bibtex_filename):
+def generate_tag_dict(bibtex_filename: str) -> Dict:
     with open(bibtex_filename) as bibtex_file:
         try:
             lines = bibtex_file.readlines()
@@ -53,11 +54,11 @@ def generate_tag_dict(bibtex_filename):
                     tag = ""
         except ValueError as e:
             print("Cannot load BibTeX file: %s" % e)
-            return
+            return {}
     return tag_dict
 
 
-def get_title(bib_entry):
+def get_title(bib_entry: Dict) -> str:
     try:
         url = bib_entry['URL'].split(" ")[0]
     except:
@@ -79,11 +80,11 @@ def get_title(bib_entry):
     return title
 
 
-def get_year(item):
+def get_year(item: Dict) -> int:
     return int(item['issued']['date-parts'][0][0])
 
 
-def get_vol_issue(bib_entry):
+def get_vol_issue(bib_entry: Dict) -> str:
     try:
         vol = bib_entry['volume']
         try:
@@ -96,9 +97,10 @@ def get_vol_issue(bib_entry):
         vol_issue = ""
         print("Warning: no volume listed for the following article:\n%s"
               "\n" % bib_entry['title'])
+    return vol_issue
 
 
-def get_authors(authors_entry):
+def get_authors(authors_entry: List[Dict]) -> str:
     authors = ""
     caps = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     # Convert authors name to "Surname First-Middle initials"
@@ -119,7 +121,7 @@ def get_authors(authors_entry):
     return authors[:-2]
 
 
-def get_tags(tag_dict, pmid):
+def get_tags(tag_dict: Dict, pmid: str) -> str:
     tags = ""
     if pmid in tag_dict:
         for tag in tag_dict[pmid]:
@@ -138,7 +140,8 @@ def get_tags(tag_dict, pmid):
     return tags
 
 
-def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
+def bibjson_to_html(
+        bibjson_filename: str, bibtex_filename: str, output_filename: str) -> None:
     # The bibjson file doesn't contain the mendeley tags, so we have to parse
     # them from the bibtex file. Maybe we should just get everything from the
     # bibtex file using pyparsing or something like that.
@@ -159,6 +162,7 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
                          "</span>\n</h1>\n" % (year_int, year_int))
             html_str += "<div class=\"biblio\">\n\t<ul>\n"
         year = "<span class=\"pubdate\">(%d) </span>" % year_int
+        print(bib_entry['author'])
         authors = get_authors(bib_entry['author'])
         journal = bib_entry['container-title']
         journal = "<span class=\"journal\">%s</span>" % journal
