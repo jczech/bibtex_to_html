@@ -56,6 +56,29 @@ def generate_tag_dict(bibtex_filename):
             return
     return tag_dict
 
+
+def get_title(bib_entry):
+    try:
+        url = bib_entry['URL'].split(" ")[0]
+    except:
+        url = None
+        print("Warning: no URL")
+    title = bib_entry['title']
+    # XXX: regex is unsafe against malicious code. unlikely issue here.
+    title = re.sub('<[^<]+?>', '', title)
+    if title.endswith("."):
+        title = title[:-1]
+    if url:
+        title = (
+            "<span class=\"title\" style=\"color: #2ebbbd;\">"
+            "<a href = \"%s\">%s</a></span>" % (url, title))
+    else:
+        title = (
+            "<span class=\"title\" style=\"color: #2ebbbd;\">"
+            "%s</span>" % (title))
+    return title
+
+
 def get_year(item):
     return int(item['issued']['date-parts'][0][0])
 
@@ -140,24 +163,7 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
         authors = get_authors(bib_entry['author'])
         journal = bib_entry['container-title']
         journal = "<span class=\"journal\">%s</span>" % journal
-        try:
-            url = bib_entry['URL'].split(" ")[0]
-        except:
-            url = None
-            print("Warning: no URL")
-        title = bib_entry['title']
-        # XXX: regex is unsafe against malicious code. unlikely issue here.
-        title = re.sub('<[^<]+?>', '', title)
-        if title.endswith("."):
-            title = title[:-1]
-        if url:
-            title = (
-                "<span class=\"title\" style=\"color: #2ebbbd;\">"
-                "<a href = \"%s\">%s</a></span>" % (url, title))
-        else:
-            title = (
-                "<span class=\"title\" style=\"color: #2ebbbd;\">"
-                "%s</span>" % (title))
+        title = get_title(bib_entry)
         vol_issue = get_vol_issue(bib_entry)
         try:
             pages = bib_entry['page']
