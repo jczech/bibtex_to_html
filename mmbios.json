@@ -1,5 +1,357 @@
 [
   {
+    "DOI": "10.1073/pnas.1525378113",
+    "ISSN": "1091-6490",
+    "PMID": "27325773",
+    "URL": "http://www.pnas.org/lookup/doi/10.1073/pnas.1525378113 http://www.ncbi.nlm.nih.gov/pubmed/27325773 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC4941443",
+    "abstract": "Secondary active transporters, such as those that adopt the leucine-transporter fold, are found in all domains of life, and they have the unique capability of harnessing the energy stored in ion gradients to accumulate small molecules essential for life as well as expel toxic and harmful compounds. How these proteins couple ion binding and transport to the concomitant flow of substrates is a fundamental structural and biophysical question that is beginning to be answered at the atomistic level with the advent of high-resolution structures of transporters in different structural states. Nonetheless, the dynamic character of the transporters, such as ion/substrate binding order and how binding triggers conformational change, is not revealed from static structures, yet it is critical to understanding their function. Here, we report a series of molecular simulations carried out on the sugar transporter vSGLT that lend insight into how substrate and ions are released from the inward-facing state of the transporter. Our simulations reveal that the order of release is stochastic. Functional experiments were designed to test this prediction on the human homolog, hSGLT1, and we also found that cytoplasmic release is not ordered, but we confirmed that substrate and ion binding from the extracellular space is ordered. Our findings unify conflicting published results concerning cytoplasmic release of ions and substrate and hint at the possibility that other transporters in the superfamily may lack coordination between ions and substrate in the inward-facing state.",
+    "author": [
+      {
+        "family": "Adelman",
+        "given": "Joshua L"
+      },
+      {
+        "family": "Ghezzi",
+        "given": "Chiara"
+      },
+      {
+        "family": "Bisignano",
+        "given": "Paola"
+      },
+      {
+        "family": "Loo",
+        "given": "Donald D F"
+      },
+      {
+        "family": "Choe",
+        "given": "Seungho"
+      },
+      {
+        "family": "Abramson",
+        "given": "Jeff"
+      },
+      {
+        "family": "Rosenberg",
+        "given": "John M"
+      },
+      {
+        "family": "Wright",
+        "given": "Ernest M"
+      },
+      {
+        "family": "Grabe",
+        "given": "Michael"
+      }
+    ],
+    "container-title": "Proceedings of the National Academy of Sciences of the United States of America",
+    "id": "Adelman2016",
+    "issue": "27",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          7.0
+        ]
+      ]
+    },
+    "keyword": "SGLT,kinetics,simulation,symporter,transporter",
+    "page": "E3960-6",
+    "title": "<span class=\"nocase\">Stochastic steps in secondary active sugar transport.</span>",
+    "type": "article-journal",
+    "volume": "113"
+  },
+  {
+    "author": [
+      {
+        "family": "Ambler",
+        "given": "R."
+      },
+      {
+        "family": "Ruan",
+        "given": "X"
+      },
+      {
+        "family": "Murphy",
+        "given": "R.F."
+      },
+      {
+        "family": "Wulfing",
+        "given": "C."
+      }
+    ],
+    "container-title": "Methods Mol Biol",
+    "id": "Ambler2016",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0
+        ]
+      ]
+    },
+    "keyword": "INPRESS,MMBIOS1-TRD3",
+    "title": "<span class=\"nocase\">Systems Imaging of the immune synapse</span>",
+    "type": "article-journal"
+  },
+  {
+    "DOI": "10.1073/pnas.1608533113",
+    "ISSN": "1091-6490",
+    "PMID": "27647911",
+    "URL": "http://www.ncbi.nlm.nih.gov/pubmed/27647911",
+    "abstract": "The ATP synthase (F-ATPase) is a highly complex rotary machine that synthesizes ATP, powered by a proton electrochemical gradient. Why did evolution select such an elaborate mechanism over arguably simpler alternating-access processes that can be reversed to perform ATP synthesis? We studied a systematic enumeration of alternative mechanisms, using numerical and theoretical means. When the alternative models are optimized subject to fundamental thermodynamic constraints, they fail to match the kinetic ability of the rotary mechanism over a wide range of conditions, particularly under low-energy conditions. We used a physically interpretable, closed-form solution for the steady-state rate for an arbitrary chemical cycle, which clarifies kinetic effects of complex free-energy landscapes. Our analysis also yields insights into the debated “kinetic equivalence” of ATP synthesis driven by transmembrane pH and potential difference. Overall, our study suggests that the complexity of the F-ATPase may have resulted from positive selection for its kinetic advantage.",
+    "author": [
+      {
+        "family": "Anandakrishnan",
+        "given": "Ramu"
+      },
+      {
+        "family": "Zhang",
+        "given": "Zining"
+      },
+      {
+        "family": "Donovan-Maiye",
+        "given": "Rory"
+      },
+      {
+        "family": "Zuckerman",
+        "given": "Daniel M"
+      }
+    ],
+    "container-title": "Proceedings of the National Academy of Sciences of the United States of America",
+    "id": "Anandakrishnan2016",
+    "issue": "40",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          10.0
+        ]
+      ]
+    },
+    "keyword": "ATP synthase,MMBIOS1-TRD1,evolution,free-energy landscape,kinetic mechanism,nonequilibrium steady state",
+    "page": "11220-11225",
+    "title": "<span class=\"nocase\">Biophysical comparison of ATP synthesis mechanisms shows a kinetic advantage for the rotary process.</span>",
+    "type": "article-journal",
+    "volume": "113"
+  },
+  {
+    "DOI": "10.1038/ng.3471",
+    "ISSN": "1546-1718",
+    "PMID": "26691984",
+    "URL": "http://www.nature.com/doifinder/10.1038/ng.3471 http://www.ncbi.nlm.nih.gov/pubmed/26691984 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC4731297",
+    "abstract": "Cancer sequencing studies have primarily identified cancer driver genes by the accumulation of protein-altering mutations. An improved method would be annotation independent, sensitive to unknown distributions of functions within proteins and inclusive of noncoding drivers. We employed density-based clustering methods in 21 tumor types to detect variably sized significantly mutated regions (SMRs). SMRs reveal recurrent alterations across a spectrum of coding and noncoding elements, including transcription factor binding sites and untranslated regions mutated in up to ∼ 15% of specific tumor types. SMRs demonstrate spatial clustering of alterations in molecular domains and at interfaces, often with associated changes in signaling. Mutation frequencies in SMRs demonstrate that distinct protein regions are differentially mutated across tumor types, as exemplified by a linker region of PIK3CA in which biophysical simulations suggest that mutations affect regulatory interactions. The functional diversity of SMRs underscores both the varied mechanisms of oncogenic misregulation and the advantage of functionally agnostic driver identification.",
+    "author": [
+      {
+        "family": "Araya",
+        "given": "Carlos L"
+      },
+      {
+        "family": "Cenik",
+        "given": "Can"
+      },
+      {
+        "family": "Reuter",
+        "given": "Jason A"
+      },
+      {
+        "family": "Kiss",
+        "given": "Gert"
+      },
+      {
+        "family": "Pande",
+        "given": "Vijay S"
+      },
+      {
+        "family": "Snyder",
+        "given": "Michael P"
+      },
+      {
+        "family": "Greenleaf",
+        "given": "William J"
+      }
+    ],
+    "container-title": "Nature genetics",
+    "id": "Araya2016a",
+    "issue": "2",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          2.0
+        ]
+      ]
+    },
+    "page": "117-25",
+    "title": "<span class=\"nocase\">Identification of significantly mutated regions across cancer types highlights a rich landscape of functional molecular alterations.</span>",
+    "type": "article-journal",
+    "volume": "48"
+  },
+  {
+    "DOI": "10.1038/srep35913",
+    "ISSN": "2045-2322",
+    "PMID": "27805049",
+    "URL": "http://www.nature.com/articles/srep35913 http://www.ncbi.nlm.nih.gov/pubmed/27805049 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC5090971",
+    "abstract": "Within the solubility-diffusion model of passive membrane permeation of small molecules, translocation of the permeant across the biological membrane is traditionally assumed to obey the Smoluchowski diffusion equation, which is germane for classical diffusion on an inhomogeneous free-energy and diffusivity landscape. This equation, however, cannot accommodate subdiffusive regimes, which have long been recognized in lipid bilayer dynamics, notably in the lateral diffusion of individual lipids. Through extensive biased and unbiased molecular dynamics simulations, we show that one-dimensional translocation of methanol across a pure lipid membrane remains subdiffusive on timescales approaching typical permeation times. Analysis of permeant motion within the lipid bilayer reveals that, in the absence of a net force, the mean squared displacement depends on time as t(0.7), in stark contrast with the conventional model, which assumes a strictly linear dependence. We further show that an alternate model using a fractional-derivative generalization of the Smoluchowski equation provides a rigorous framework for describing the motion of the permeant molecule on the pico- to nanosecond timescale. The observed subdiffusive behavior appears to emerge from a crossover between small-scale rattling of the permeant around its present position in the membrane and larger-scale displacements precipitated by the formation of transient voids.",
+    "author": [
+      {
+        "family": "Chipot",
+        "given": "Christophe"
+      },
+      {
+        "family": "Comer",
+        "given": "Jeffrey"
+      }
+    ],
+    "container-title": "Scientific reports",
+    "id": "Chipot2016",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          11.0
+        ]
+      ]
+    },
+    "page": "35913",
+    "title": "<span class=\"nocase\">Subdiffusion in Membrane Permeation of Small Molecules.</span>",
+    "type": "article-journal",
+    "volume": "6"
+  },
+  {
+    "DOI": "10.1021/acs.jctc.6b00567",
+    "ISSN": "1549-9626",
+    "PMID": "27399642",
+    "URL": "http://pubs.acs.org/doi/abs/10.1021/acs.jctc.6b00567 http://www.ncbi.nlm.nih.gov/pubmed/27399642 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC4980686",
+    "abstract": "We present the AMBER ff15ipq force field for proteins, the second-generation force field developed using the Implicitly Polarized Q (IPolQ) scheme for deriving implicitly polarized atomic charges in the presence of explicit solvent. The ff15ipq force field is a complete rederivation including more than 300 unique atomic charges, 900 unique torsion terms, 60 new angle parameters, and new atomic radii for polar hydrogens. The atomic charges were derived in the context of the SPC/Eb water model, which yields more-accurate rotational diffusion of proteins and enables direct calculation of nuclear magnetic resonance (NMR) relaxation parameters from molecular dynamics simulations. The atomic radii improve the accuracy of modeling salt bridge interactions relative to contemporary fixed-charge force fields, rectifying a limitation of ff14ipq that resulted from its use of pair-specific Lennard-Jones radii. In addition, ff15ipq reproduces penta-alanine J-coupling constants exceptionally well, gives reasonable agreement with NMR relaxation rates, and maintains the expected conformational propensities of structured proteins/peptides, as well as disordered peptides-all on the microsecond ($\\mu$s) time scale, which is a critical regime for drug design applications. These encouraging results demonstrate the power and robustness of our automated methods for deriving new force fields. All parameters described here and the mdgx program used to fit them are included in the AmberTools16 distribution.",
+    "author": [
+      {
+        "family": "Debiec",
+        "given": "Karl T"
+      },
+      {
+        "family": "Cerutti",
+        "given": "David S"
+      },
+      {
+        "family": "Baker",
+        "given": "Lewis R"
+      },
+      {
+        "family": "Gronenborn",
+        "given": "Angela M"
+      },
+      {
+        "family": "Case",
+        "given": "David A"
+      },
+      {
+        "family": "Chong",
+        "given": "Lillian T"
+      }
+    ],
+    "container-title": "Journal of chemical theory and computation",
+    "id": "Debiec2016",
+    "issue": "8",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          8.0
+        ]
+      ]
+    },
+    "page": "3926-47",
+    "title": "<span class=\"nocase\">Further along the Road Less Traveled: AMBER ff15ipq, an Original Protein Force Field Built on a Self-Consistent Physical Model.</span>",
+    "type": "article-journal",
+    "volume": "12"
+  },
+  {
+    "DOI": "10.1021/acs.jpcb.6b01950",
+    "ISSN": "1520-5207",
+    "PMID": "27133568",
+    "URL": "http://pubs.acs.org/doi/abs/10.1021/acs.jpcb.6b01950 http://www.ncbi.nlm.nih.gov/pubmed/27133568 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC5001916",
+    "abstract": "Mutations in cardiac troponin C (D75Y, E59D, and G159D), a key regulatory protein of myofilament contraction, have been associated with dilated cardiomyopathy (DCM). Despite reports of altered myofilament function in these mutants, the underlying molecular alterations caused by these mutations remain elusive. Here we investigate in silico the intramolecular mechanisms by which these mutations affect myofilament contraction. On the basis of the location of cardiac troponin C (cTnC) mutations, we tested the hypothesis that intramolecular effects can explain the altered myofilament calcium sensitivity of force development for D75Y and E59D cTnC, whereas altered cardiac troponin C-troponin I (cTnC-cTnI) interaction contributes to the reported contractile effects of the G159D mutation. We employed a multiscale approach combining molecular dynamics (MD) and Brownian dynamics (BD) simulations to estimate cTnC calcium association and hydrophobic patch opening. We then integrated these parameters into a Markov model of myofilament activation to compute the steady-state force-pCa relationship. The analysis showed that myofilament calcium sensitivity with D75Y and E59D can be explained by changes in calcium binding affinity of cTnC and the rate of hydrophobic patch opening, if a partial cTnC interhelical opening angle (110°) is sufficient for cTnI switch peptide association to cTnC. In contrast, interactions between cTnC and cTnI within the cardiac troponin complex must also be accounted for to explain contractile alterations due to G159D. In conclusion, this is the first multiscale in silico study to elucidate how direct molecular effects of genetic mutations in cTnC translate to altered myofilament contractile function.",
+    "author": [
+      {
+        "family": "Dewan",
+        "given": "Sukriti"
+      },
+      {
+        "family": "McCabe",
+        "given": "Kimberly J"
+      },
+      {
+        "family": "Regnier",
+        "given": "Michael"
+      },
+      {
+        "family": "McCulloch",
+        "given": "Andrew D"
+      },
+      {
+        "family": "Lindert",
+        "given": "Steffen"
+      }
+    ],
+    "container-title": "The journal of physical chemistry. B",
+    "id": "Dewan2016",
+    "issue": "33",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          8.0
+        ]
+      ]
+    },
+    "page": "8264-75",
+    "title": "<span class=\"nocase\">Molecular Effects of cTnC DCM Mutations on Calcium Sensitivity and Myofilament Activation-An Integrated Multiscale Modeling Study.</span>",
+    "type": "article-journal",
+    "volume": "120"
+  },
+  {
+    "DOI": "10.1038/ncomms12753",
+    "ISSN": "2041-1723",
+    "PMID": "27678077",
+    "URL": "http://www.nature.com/doifinder/10.1038/ncomms12753 http://www.ncbi.nlm.nih.gov/pubmed/27678077 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC5052707",
+    "abstract": "The selectivity filter is an essential functional element of K(+) channels that is highly conserved both in terms of its primary sequence and its three-dimensional structure. Here, we investigate the properties of an ion channel from the Gram-positive bacterium Tsukamurella paurometabola with a selectivity filter formed by an uncommon proline-rich sequence. Electrophysiological recordings show that it is a non-selective cation channel and that its activity depends on Ca(2+) concentration. In the crystal structure, the selectivity filter adopts a novel conformation with Ca(2+) ions bound within the filter near the pore helix where they are coordinated by backbone oxygen atoms, a recurrent motif found in multiple proteins. The binding of Ca(2+) ion in the selectivity filter controls the widening of the pore as shown in crystal structures and in molecular dynamics simulations. The structural, functional and computational data provide a characterization of this calcium-gated cationic channel.",
+    "author": [
+      {
+        "family": "Dhakshnamoorthy",
+        "given": "Balasundaresan"
+      },
+      {
+        "family": "Rohaim",
+        "given": "Ahmed"
+      },
+      {
+        "family": "Rui",
+        "given": "Huan"
+      },
+      {
+        "family": "Blachowicz",
+        "given": "Lydia"
+      },
+      {
+        "family": "Roux",
+        "given": "Benoît"
+      }
+    ],
+    "container-title": "Nature communications",
+    "id": "Dhakshnamoorthy2016",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          9.0
+        ]
+      ]
+    },
+    "page": "12753",
+    "title": "<span class=\"nocase\">Structural and functional characterization of a calcium-activated cation channel from Tsukamurella paurometabola.</span>",
+    "type": "article-journal",
+    "volume": "7"
+  },
+  {
     "DOI": "10.1371/journal.pcbi.1004611",
     "ISSN": "15537358",
     "PMID": "26845334",
@@ -51,6 +403,140 @@
     "title": "<span class=\"nocase\">Unbiased Rare Event Sampling in Spatial Stochastic Systems Biology Models Using a Weighted Ensemble of Trajectories</span>",
     "type": "article-journal",
     "volume": "12"
+  },
+  {
+    "DOI": "10.1016/j.bpj.2016.03.025",
+    "ISSN": "1542-0086",
+    "PMID": "27119628",
+    "URL": "http://www.ncbi.nlm.nih.gov/pubmed/27119628 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC4850343",
+    "author": [
+      {
+        "family": "Faeder",
+        "given": "James R"
+      },
+      {
+        "family": "Morel",
+        "given": "Penelope A"
+      }
+    ],
+    "container-title": "Biophysical journal",
+    "id": "Faeder2016",
+    "issue": "8",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          4.0
+        ]
+      ]
+    },
+    "keyword": "MMBIOS1-TRD2",
+    "page": "1681-3",
+    "title": "Reductionism Is Dead: Long Live Reductionism! Systems Modeling Needs Reductionist Experiments.",
+    "type": "article-journal",
+    "volume": "110"
+  },
+  {
+    "DOI": "10.1093/bioinformatics/btw469",
+    "ISSN": "1367-4811",
+    "PMID": "27402907",
+    "URL": "http://www.ncbi.nlm.nih.gov/pubmed/27402907 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC5079481",
+    "abstract": ": BioNetGen is an open-source software package for rule-based modeling of complex biochemical systems. Version 2.2 of the software introduces numerous new features for both model specification and simulation. Here, we report on these additions, discussing how they facilitate the construction, simulation and analysis of larger and more complex models than previously possible. AVAILABILITY AND IMPLEMENTATION Stable BioNetGen releases (Linux, Mac OS/X and Windows), with documentation, are available at http://bionetgen.org Source code is available at http://github.com/RuleWorld/bionetgen CONTACT: bionetgen.help@gmail.comSupplementary information: Supplementary data are available at Bioinformatics online.",
+    "author": [
+      {
+        "family": "Harris",
+        "given": "Leonard A"
+      },
+      {
+        "family": "Hogg",
+        "given": "Justin S"
+      },
+      {
+        "family": "Tapia",
+        "given": "José-Juan"
+      },
+      {
+        "family": "Sekar",
+        "given": "John A P"
+      },
+      {
+        "family": "Gupta",
+        "given": "Sanjana"
+      },
+      {
+        "family": "Korsunsky",
+        "given": "Ilya"
+      },
+      {
+        "family": "Arora",
+        "given": "Arshi"
+      },
+      {
+        "family": "Barua",
+        "given": "Dipak"
+      },
+      {
+        "family": "Sheehan",
+        "given": "Robert P"
+      },
+      {
+        "family": "Faeder",
+        "given": "James R"
+      }
+    ],
+    "container-title": "Bioinformatics (Oxford, England)",
+    "id": "Harris2016",
+    "issue": "21",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          11.0
+        ]
+      ]
+    },
+    "keyword": "MMBIOS1-TRD2",
+    "page": "3366-3368",
+    "title": "<span class=\"nocase\">BioNetGen 2.2: advances in rule-based modeling.</span>",
+    "type": "article-journal",
+    "volume": "32"
+  },
+  {
+    "DOI": "10.1093/glycob/cwv083",
+    "ISSN": "1460-2423",
+    "PMID": "26405106",
+    "URL": "https://academic.oup.com/glycob/article-lookup/doi/10.1093/glycob/cwv083 http://www.ncbi.nlm.nih.gov/pubmed/26405106 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC4672150",
+    "abstract": "N-linked glycans are on protein surfaces and have direct and water/ion-mediated interactions with surrounding amino acids. Such contacts could restrict their conformational freedom compared to the same glycans free in solution. In this work, we have examined the conformational freedom of the N-glycan core pentasaccharide moiety in solution using standard molecular dynamics (MD) simulations as well as temperature replica-exchange MD simulations. Both simulations yield the comparable conformational variability of the pentasaccharide in solution, indicating the convergence of both simulations. The glycoprotein crystal structures are analyzed to compare the conformational freedom of the N-glycan on the protein surface with the simulation result. Surprisingly, the pentasaccharide free in solution shows more restricted conformational variability than the N-glycan on the protein surface. The interactions between the carbohydrate and the protein side chain appear to be responsible for the increased conformational diversity of the N-glycan on the protein surface. Finally, the transfer entropy analysis of the simulation trajectory also reveals an unexpected causality relationship between intramolecular hydrogen bonds and the conformational states in that the hydrogen bonds play a role in maintaining the conformational states rather than driving the change in glycosidic torsional states.",
+    "author": [
+      {
+        "family": "Jo",
+        "given": "Sunhwan"
+      },
+      {
+        "family": "Qi",
+        "given": "Yifei"
+      },
+      {
+        "family": "Im",
+        "given": "Wonpil"
+      }
+    ],
+    "container-title": "Glycobiology",
+    "id": "Jo2016a",
+    "issue": "1",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          1.0
+        ]
+      ]
+    },
+    "keyword": "crystal structure,information theory,molecular dynamics,simulation",
+    "page": "19-29",
+    "title": "<span class=\"nocase\">Preferred conformations of N-glycan core pentasaccharide in solution and in glycoproteins.</span>",
+    "type": "article-journal",
+    "volume": "26"
   },
   {
     "DOI": "10.1113/JP271311",
@@ -128,6 +614,43 @@
     "title": "<span class=\"nocase\">Pore dilatation increases the bicarbonate permeability of CFTR, ANO1 and glycine receptor anion channels.</span>",
     "type": "article-journal",
     "volume": "594"
+  },
+  {
+    "DOI": "10.1109/TIP.2015.2509419",
+    "ISSN": "1941-0042",
+    "PMID": "26685245",
+    "URL": "http://ieeexplore.ieee.org/document/7358128/ http://www.ncbi.nlm.nih.gov/pubmed/26685245 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC4871726",
+    "abstract": "Invertible image representation methods (transforms) are routinely employed as low-level image processing operations based on which feature extraction and recognition algorithms are developed. Most transforms in current use (e.g., Fourier, wavelet, and so on) are linear transforms and, by themselves, are unable to substantially simplify the representation of image classes for classification. Here, we describe a nonlinear, invertible, low-level image processing transform based on combining the well-known Radon transform for image data, and the 1D cumulative distribution transform proposed earlier. We describe a few of the properties of this new transform, and with both theoretical and experimental results show that it can often render certain problems linearly separable in a transform space.",
+    "author": [
+      {
+        "family": "Kolouri",
+        "given": "Soheil"
+      },
+      {
+        "family": "Park",
+        "given": "Se Rim"
+      },
+      {
+        "family": "Rohde",
+        "given": "Gustavo K"
+      }
+    ],
+    "container-title": "IEEE transactions on image processing : a publication of the IEEE Signal Processing Society",
+    "id": "Kolouri2016b",
+    "issue": "2",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          2.0
+        ]
+      ]
+    },
+    "keyword": "MMBIOS1-CSP14,MMBIOS1-TRD3",
+    "page": "920-34",
+    "title": "<span class=\"nocase\">The Radon Cumulative Distribution Transform and Its Application to Image Classification.</span>",
+    "type": "article-journal",
+    "volume": "25"
   },
   {
     "DOI": "10.1016/j.patcog.2015.09.019",
@@ -390,6 +913,40 @@
     "volume": "1858"
   },
   {
+    "DOI": "10.1016/j.cyto.2016.11.013",
+    "ISSN": "1096-0023",
+    "PMID": "27919524",
+    "URL": "http://www.ncbi.nlm.nih.gov/pubmed/27919524",
+    "abstract": "Cytokines provide the means by which immune cells communicate with each other and with parenchymal cells. There are over one hundred cytokines and many exist in families that share receptor components and signal transduction pathways, creating complex networks. Reductionist approaches to understanding the role of specific cytokines, through the use of gene-targeted mice, have revealed further complexity in the form of redundancy and pleiotropy in cytokine function. Creating an understanding of the complex interactions between cytokines and their target cells is challenging experimentally. Mathematical and computational modeling provides a robust set of tools by which complex interactions between cytokines can be studied and analyzed, in the process creating novel insights that can be further tested experimentally. This review will discuss and provide examples of the different modeling approaches that have been used to increase our understanding of cytokine networks. This includes discussion of knowledge-based and data-driven modeling approaches and the recent advance in single-cell analysis. The use of modeling to optimize cytokine-based therapies will also be discussed.",
+    "author": [
+      {
+        "family": "Morel",
+        "given": "Penelope A"
+      },
+      {
+        "family": "Lee",
+        "given": "Robin E C"
+      },
+      {
+        "family": "Faeder",
+        "given": "James R"
+      }
+    ],
+    "container-title": "Cytokine",
+    "id": "Morel2016",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          12.0
+        ]
+      ]
+    },
+    "keyword": "CD4 T cell differentiation,Cytokine networks,MMBIOS1-TRD2,Mathematical modeling,Single-cell analysis",
+    "title": "<span class=\"nocase\">Demystifying the cytokine network: Mathematical models point the way.</span>",
+    "type": "article-journal"
+  },
+  {
     "DOI": "10.1016/j.cell.2016.02.033",
     "ISSN": "10974172",
     "PMID": "27015312",
@@ -499,6 +1056,78 @@
     "volume": "5"
   },
   {
+    "DOI": "10.1016/j.bpj.2016.08.015",
+    "ISSN": "1542-0086",
+    "PMID": "27653484",
+    "URL": "http://www.ncbi.nlm.nih.gov/pubmed/27653484 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC5034716",
+    "abstract": "Antimicrobial peptides (AMPs) that disrupt bacterial membranes are promising therapeutics against the growing number of antibiotic-resistant bacteria. The mechanism of membrane disruption by the AMP piscidin 1 was examined with multimicrosecond all-atom molecular dynamics simulations and solid-state NMR spectroscopy. The primary simulation was initialized with 20 peptides in four barrel-stave pores in a fully hydrated 1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine/1-palmitoyl-2-oleoyl-sn-glycero-3-phosphoglycerol bilayer. The four pores relaxed to toroidal by 200 ns, only one porelike structure containing two transmembrane helices remained at 26 $\\mu$s, and none of the 18 peptides released to the surface reinserted to form pores. The simulation was repeated at 413 K with an applied electric field and all peptides were surface-bound by 200 ns. Trajectories of surface-bound piscidin with and without applied fields at 313 and 413 K and totaling 6 $\\mu$s show transient distortions of the bilayer/water interface (consistent with (31)P NMR), but no insertion to transmembrane or pore states. (15)N chemical shifts confirm a fully surface-bound conformation. Taken together, the simulation and experimental results imply that transient defects rather than stable pores are responsible for membrane disruption by piscidin 1, and likely other AMPs.",
+    "author": [
+      {
+        "family": "Perrin",
+        "given": "B Scott"
+      },
+      {
+        "family": "Fu",
+        "given": "Riqiang"
+      },
+      {
+        "family": "Cotten",
+        "given": "Myriam L"
+      },
+      {
+        "family": "Pastor",
+        "given": "Richard W"
+      }
+    ],
+    "container-title": "Biophysical journal",
+    "id": "Perrin2016",
+    "issue": "6",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          9.0
+        ]
+      ]
+    },
+    "page": "1258-66",
+    "title": "<span class=\"nocase\">Simulations of Membrane-Disrupting Peptides II: AMP Piscidin 1 Favors Surface Defects over Pores.</span>",
+    "type": "article-journal",
+    "volume": "111"
+  },
+  {
+    "DOI": "10.1016/j.bpj.2016.08.014",
+    "ISSN": "1542-0086",
+    "PMID": "27653483",
+    "URL": "http://www.ncbi.nlm.nih.gov/pubmed/27653483 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC5034365",
+    "abstract": "An all-atom molecular dynamics simulation of the archetype barrel-stave alamethicin (alm) pore in a 1,2-dioleoyl-sn-glycero-3-phosphocholine bilayer at 313 K indicates that ∼7 $\\mu$s is required for equilibration of a preformed 6-peptide pore; the pore remains stable for the duration of the remaining 7 $\\mu$s of the trajectory, and the structure factors agree well with experiment. A 5 $\\mu$s simulation of 10 surface-bound alm peptides shows significant peptide unfolding and some unbinding, but no insertion. Simulations at 363 and 413 K with a -0.2 V electric field yield peptide insertion in 1 $\\mu$s. Insertion is initiated by the folding of residues 3-11 into an $\\alpha$-helix, and mediated by membrane water or by previously inserted peptides. The stability of five alm pore peptides at 413 K with a -0.2 V electric field demonstrates a significant preference for a transmembrane orientation. Hence, and in contrast to the cationic antimicrobial peptide described in the following article, alm shows a strong preference for the inserted over the surface-bound state.",
+    "author": [
+      {
+        "family": "Perrin",
+        "given": "B Scott"
+      },
+      {
+        "family": "Pastor",
+        "given": "Richard W"
+      }
+    ],
+    "container-title": "Biophysical journal",
+    "id": "Perrin2016a",
+    "issue": "6",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          9.0
+        ]
+      ]
+    },
+    "page": "1248-57",
+    "title": "<span class=\"nocase\">Simulations of Membrane-Disrupting Peptides I: Alamethicin Pore Stability and Spontaneous Insertion.</span>",
+    "type": "article-journal",
+    "volume": "111"
+  },
+  {
     "DOI": "10.1371/journal.pcbi.1004570",
     "ISBN": "10.1371/journal.pcbi.1004570",
     "ISSN": "15537358",
@@ -534,6 +1163,43 @@
     "title": "<span class=\"nocase\">Pore Structure and Synergy in Antimicrobial Peptides of the Magainin Family</span>",
     "type": "article-journal",
     "volume": "12"
+  },
+  {
+    "DOI": "10.1093/glycob/cwv101",
+    "ISSN": "1460-2423",
+    "PMID": "26537503",
+    "URL": "https://academic.oup.com/glycob/article-lookup/doi/10.1093/glycob/cwv101 http://www.ncbi.nlm.nih.gov/pubmed/26537503 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC4736541",
+    "abstract": "Many novel broadly neutralizing antibodies against human immunodeficiency virus (HIV) have been identified during the past decade, providing promising templates for the development of an effective HIV-1 vaccine. Structural studies reveal that the epitopes of some of these antibodies involve one or more crucial glycans, without which the binding is completely abolished. In this study, we have investigated the critical roles of glycans in interactions between HIV-1 gp120 and two broadly neutralizing antibodies PG9 (targeting V1/V2) and PGT128 (targeting V3) that are able to neutralize more than 70% of HIV-1 isolates. We have performed molecular dynamics simulations of a number of systems including antibody-gp120 complex with and without glycans, antibody, gp120 with and without glycans, and glycan-only systems. The simulation results show that the complex structures are stabilized by the glycans, and the multivalent interactions between the antibody and gp120 promote cooperativities to further enhance the binding. In the free gp120, the glycans increase the flexibility of the V1/V2 and V3 loops, which likely increases the entropy cost of the antibody recognition. However, the antibodies are able to bind the flexible interface by recognizing the preexisting glycan conformation, and penetrating the glycan shield with flexible complementarity determining region loops that sample the bound conformations occasionally.",
+    "author": [
+      {
+        "family": "Qi",
+        "given": "Yifei"
+      },
+      {
+        "family": "Jo",
+        "given": "Sunhwan"
+      },
+      {
+        "family": "Im",
+        "given": "Wonpil"
+      }
+    ],
+    "container-title": "Glycobiology",
+    "id": "Qi2016a",
+    "issue": "3",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          3.0
+        ]
+      ]
+    },
+    "keyword": "PG9,PGT128,protein–glycan interaction",
+    "page": "251-60",
+    "title": "<span class=\"nocase\">Roles of glycans in interactions between gp120 and HIV broadly neutralizing antibodies.</span>",
+    "type": "article-journal",
+    "volume": "26"
   },
   {
     "DOI": "10.1073/pnas.1522663113",
@@ -659,11 +1325,130 @@
     "volume": "9"
   },
   {
+    "DOI": "10.7554/eLife.16616",
+    "ISSN": "2050-084X",
+    "PMID": "27490484",
+    "URL": "http://elifesciences.org/lookup/doi/10.7554/eLife.16616 http://www.ncbi.nlm.nih.gov/pubmed/27490484 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC5026471",
+    "abstract": "The Na(+)/K(+)-pump maintains the physiological K(+) and Na(+) electrochemical gradients across the cell membrane. It operates via an ’alternating-access’ mechanism, making iterative transitions between inward-facing (E1) and outward-facing (E2) conformations. Although the general features of the transport cycle are known, the detailed physicochemical factors governing the binding site selectivity remain mysterious. Free energy molecular dynamics simulations show that the ion binding sites switch their binding specificity in E1 and E2. This is accompanied by small structural arrangements and changes in protonation states of the coordinating residues. Additional computations on structural models of the intermediate states along the conformational transition pathway reveal that the free energy barrier toward the occlusion step is considerably increased when the wrong type of ion is loaded into the binding pocket, prohibiting the pump cycle from proceeding forward. This self-correcting mechanism strengthens the overall transport selectivity and protects the stoichiometry of the pump cycle.",
+    "author": [
+      {
+        "family": "Rui",
+        "given": "Huan"
+      },
+      {
+        "family": "Artigas",
+        "given": "Pablo"
+      },
+      {
+        "family": "Roux",
+        "given": "Benoît"
+      }
+    ],
+    "container-title": "eLife",
+    "id": "Rui2016",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          8.0
+        ]
+      ]
+    },
+    "keyword": "biophysics,computational biology,conformational transitions,free energy,molecular dynamics,simulations,structural biology,systems biology",
+    "title": "<span class=\"nocase\">The selectivity of the Na(+)/K(+)-pump is controlled by binding site protonation and self-correcting occlusion.</span>",
+    "type": "article-journal",
+    "volume": "5"
+  },
+  {
+    "DOI": "10.1016/j.bpj.2016.08.041",
+    "ISSN": "1542-0086",
+    "PMID": "27760351",
+    "URL": "http://linkinghub.elsevier.com/retrieve/pii/S0006349516307640 http://www.ncbi.nlm.nih.gov/pubmed/27760351 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC5071553",
+    "abstract": "Proteins commonly sample a number of conformational states to carry out their biological function, often requiring transitions from the ground state to higher-energy states. Characterizing the mechanisms that guide these transitions at the atomic level promises to impact our understanding of functional protein dynamics and energy landscapes. The leucine-99-to-alanine (L99A) mutant of T4 lysozyme is a model system that has an experimentally well characterized excited sparsely populated state as well as a ground state. Despite the exhaustive study of L99A protein dynamics, the conformational changes that permit transitioning to the experimentally detected excited state (∼3%, $\\Delta$G ∼2 kcal/mol) remain unclear. Here, we describe the transitions from the ground state to this sparsely populated excited state of L99A as observed through a single molecular dynamics (MD) trajectory on the Anton supercomputer. Aside from detailing the ground-to-excited-state transition, the trajectory samples multiple metastates and an intermediate state en route to the excited state. Dynamic motions between these states enable cavity surface openings large enough to admit benzene on timescales congruent with known rates for benzene binding. Thus, these fluctuations between rare protein states provide an atomic description of the concerted motions that illuminate potential path(s) for ligand binding. These results reveal, to our knowledge, a new level of complexity in the dynamics of buried cavities and their role in creating mobile defects that affect protein dynamics and ligand binding.",
+    "author": [
+      {
+        "family": "Schiffer",
+        "given": "Jamie M"
+      },
+      {
+        "family": "Feher",
+        "given": "Victoria A"
+      },
+      {
+        "family": "Malmstrom",
+        "given": "Robert D"
+      },
+      {
+        "family": "Sida",
+        "given": "Roxana"
+      },
+      {
+        "family": "Amaro",
+        "given": "Rommie E"
+      }
+    ],
+    "container-title": "Biophysical journal",
+    "id": "Schiffer2016",
+    "issue": "8",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          10.0
+        ]
+      ]
+    },
+    "page": "1631-1640",
+    "title": "<span class=\"nocase\">Capturing Invisible Motions in the Transition from Ground to Rare Excited States of T4 Lysozyme L99A.</span>",
+    "type": "article-journal",
+    "volume": "111"
+  },
+  {
+    "DOI": "10.1103/PhysRevLett.117.138104",
+    "ISSN": "1079-7114",
+    "PMID": "27715135",
+    "URL": "http://www.ncbi.nlm.nih.gov/pubmed/27715135 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC5134905",
+    "abstract": "The unique properties of the individual lipids that compose biological membranes together determine the energetics of the surface. The energetics of the surface, in turn, govern the formation of membrane structures and membrane reshaping processes, and thus they will underlie cellular-scale models of viral fusion, vesicle-dependent transport, and lateral organization relevant to signaling. The spontaneous curvature, to the best of our knowledge, is always assumed to be additive. We describe observations from simulations of unexpected nonadditive compositional curvature energetics of two lipids essential to the plasma membrane: sphingomyelin and cholesterol. A model is developed that connects molecular interactions to curvature stress, and which explains the role of local composition. Cholesterol is shown to lower the number of effective Kuhn segments of saturated acyl chains, reducing lateral pressure below the neutral surface of bending and favoring positive curvature. The effect is not observed for unsaturated (flexible) acyl chains. Likewise, hydrogen bonding between sphingomyelin lipids leads to positive curvature, but only at sufficient concentration, below which the lipid prefers negative curvature.",
+    "author": [
+      {
+        "family": "Sodt",
+        "given": "A J"
+      },
+      {
+        "family": "Venable",
+        "given": "R M"
+      },
+      {
+        "family": "Lyman",
+        "given": "E"
+      },
+      {
+        "family": "Pastor",
+        "given": "R W"
+      }
+    ],
+    "container-title": "Physical review letters",
+    "id": "Sodt2016",
+    "issue": "13",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          9.0
+        ]
+      ]
+    },
+    "page": "138104",
+    "title": "<span class=\"nocase\">Nonadditive Compositional Curvature Energetics of Lipid Bilayers.</span>",
+    "type": "article-journal",
+    "volume": "117"
+  },
+  {
     "DOI": "10.1021/acs.jctc.6b00339",
-    "ISSN": "1549-9618",
+    "ISSN": "1549-9626",
     "PMID": "27340835",
-    "URL": "http://www.ncbi.nlm.nih.gov/pubmed/27340835",
-    "abstract": "Because standard molecular dynamics (MD) simulations are unable to access timescales of interest in complex biomolecular systems, it is common to ‘stitch together’ information from multiple shorter trajectories using approximate Markov state model (MSM) analysis. However, MSMs may require significant tuning and can yield biased results. Here, by analyzing some of the longest protein MD data sets available (&gt; 100 $\\mu$s per protein), we show that estimators constructed based on exact non-Markovian (NM) principles can yield significantly improved mean first-passage times (MFPTs) for protein folding and unfolding. In some cases, MSM bias of more than an order of magnitude can be corrected when identical trajectory data is re-analyzed by non-Markovian approaches. The NM analysis includes ‘history’ information – higher order time correlations compared to MSMs – that are available in every MD trajectory. The NM strategy is insensitive to fine details of the states used and works well when a fine time-discretizati...",
+    "URL": "http://pubs.acs.org/doi/abs/10.1021/acs.jctc.6b00339 http://www.ncbi.nlm.nih.gov/pubmed/27340835 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC5022777",
+    "abstract": "Because standard molecular dynamics (MD) simulations are unable to access time scales of interest in complex biomolecular systems, it is common to “stitch together” information from multiple shorter trajectories using approximate Markov state model (MSM) analysis. However, MSMs may require significant tuning and can yield biased results. Here, by analyzing some of the longest protein MD data sets available (&gt;100 $\\mu$s per protein), we show that estimators constructed based on exact non-Markovian (NM) principles can yield significantly improved mean first-passage times (MFPTs) for protein folding and unfolding. In some cases, MSM bias of more than an order of magnitude can be corrected when identical trajectory data are reanalyzed by non-Markovian approaches. The NM analysis includes “history” information, higher order time correlations compared to MSMs, that is available in every MD trajectory. The NM strategy is insensitive to fine details of the states used and works well when a fine time-discretization (i.e., small “lag time”) is used.",
     "author": [
       {
         "family": "Suárez",
@@ -671,7 +1456,7 @@
       },
       {
         "family": "Adelman",
-        "given": "Joshua Lev"
+        "given": "Joshua L"
       },
       {
         "family": "Zuckerman",
@@ -689,8 +1474,9 @@
         ]
       ]
     },
+    "keyword": "MMBIOS1-TRD1",
     "page": "3473-81",
-    "title": "<span class=\"nocase\">Accurate estimation of protein folding and unfolding times: Beyond Markov state models</span>",
+    "title": "<span class=\"nocase\">Accurate Estimation of Protein Folding and Unfolding Times: Beyond Markov State Models.</span>",
     "type": "article-journal",
     "volume": "12"
   },
@@ -729,7 +1515,7 @@
         ]
       ]
     },
-    "keyword": "first-passage time,non-Markovian,rare event,weighted ensemble",
+    "keyword": "MMBIOS1-TRD1,first-passage time,non-Markovian,rare event,weighted ensemble",
     "page": "67-78",
     "title": "<span class=\"nocase\">Estimating first-passage time distributions from weighted ensemble simulations and non-Markovian analyses</span>",
     "type": "article-journal",
@@ -763,7 +1549,7 @@
         ]
       ]
     },
-    "keyword": "MMBIOS1-TRD1,active storage file system,data duplication,data sharing,hierarchical,multidimensional data processing,near-data computing",
+    "keyword": "MMBIOS1-TRD3,active storage file system,data duplication,data sharing,hierarchical,multidimensional data processing,near-data computing",
     "page": "1-5",
     "publisher": "ACM Press",
     "publisher-place": "New York, New York, USA",
@@ -771,9 +1557,50 @@
     "type": "paper-conference"
   },
   {
+    "DOI": "10.7554/eLife.20556",
+    "ISSN": "2050-084X",
+    "PMID": "28034367",
+    "URL": "http://elifesciences.org/lookup/doi/10.7554/eLife.20556 http://www.ncbi.nlm.nih.gov/pubmed/28034367 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC5201421",
+    "abstract": "Nervous system function requires intracellular transport of channels, receptors, mRNAs, and other cargo throughout complex neuronal morphologies. Local signals such as synaptic input can regulate cargo trafficking, motivating the leading conceptual model of neuron-wide transport, sometimes called the ’sushi-belt model’ (Doyle and Kiebler, 2011). Current theories and experiments are based on this model, yet its predictions are not rigorously understood. We formalized the sushi belt model mathematically, and show that it can achieve arbitrarily complex spatial distributions of cargo in reconstructed morphologies. However, the model also predicts an unavoidable, morphology dependent tradeoff between speed, precision and metabolic efficiency of cargo transport. With experimental estimates of trafficking kinetics, the model predicts delays of many hours or days for modestly accurate and efficient cargo delivery throughout a dendritic tree. These findings challenge current understanding of the efficacy of nucleus-to-synapse trafficking and may explain the prevalence of local biosynthesis in neurons.",
+    "author": [
+      {
+        "family": "Williams",
+        "given": "Alex H"
+      },
+      {
+        "family": "O’Donnell",
+        "given": "Cian"
+      },
+      {
+        "family": "Sejnowski",
+        "given": "Terrence J"
+      },
+      {
+        "family": "O’Leary",
+        "given": "Timothy"
+      }
+    ],
+    "container-title": "eLife",
+    "id": "Williams2016",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          12.0
+        ]
+      ]
+    },
+    "keyword": "MMBIOS1-TRD2,active transport,computational biology,morphology,motor proteins,neuroscience,none,plasticity,regulation,systems biology,tagging hypothesis",
+    "title": "<span class=\"nocase\">Dendritic trafficking faces physiologically critical speed-precision tradeoffs.</span>",
+    "type": "article-journal",
+    "volume": "5"
+  },
+  {
     "DOI": "10.1002/anie.201603766",
-    "ISSN": "14337851",
-    "URL": "http://doi.wiley.com/10.1002/anie.201603766",
+    "ISSN": "1521-3773",
+    "PMID": "27244650",
+    "URL": "http://doi.wiley.com/10.1002/anie.201603766 http://www.ncbi.nlm.nih.gov/pubmed/27244650 http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC4957245",
+    "abstract": "G-protein-coupled receptors (GPCRs) are involved in a wide range of physiological processes, and they have attracted considerable attention as important targets for developing new medicines. A central and largely unresolved question in drug discovery, which is especially relevant to GPCRs, concerns ligand selectivity: Why do certain molecules act as activators (agonists) whereas others, with nearly identical structures, act as blockers (antagonists) of GPCRs? To address this question, we employed all-atom, long-timescale molecular dynamics simulations to investigate how two diastereomers (epimers) of dihydrofuroaporphine bind to the serotonin 5-HT1A receptor and exert opposite effects. By using molecular interaction fingerprints, we discovered that the agonist could mobilize nearby amino acid residues to act as molecular switches for the formation of a continuous water channel. In contrast, the antagonist epimer remained firmly stabilized in the binding pocket.",
     "author": [
       {
         "family": "Yuan",
@@ -796,7 +1623,7 @@
         "given": "Slawomir"
       }
     ],
-    "container-title": "Angewandte Chemie International Edition",
+    "container-title": "Angewandte Chemie (International ed. in English)",
     "id": "Yuan2016",
     "issue": "30",
     "issued": {
@@ -808,8 +1635,8 @@
       ]
     },
     "keyword": "GPCRs,molecular dynamics simulations,proteins,stereoselectivity,water channels",
-    "page": "8661-8665",
-    "title": "<span class=\"nocase\">Mechanistic Studies on the Stereoselectivity of the Serotonin 5-HT &lt;sub&gt;1A&lt;/sub&gt; Receptor</span>",
+    "page": "8661-5",
+    "title": "<span class=\"nocase\">Mechanistic Studies on the Stereoselectivity of the Serotonin 5-HT1A Receptor.</span>",
     "type": "article-journal",
     "volume": "55"
   },
@@ -861,6 +1688,7 @@
         ]
       ]
     },
+    "keyword": "MMBIOS1-TRD1",
     "page": "020875",
     "title": "<span class=\"nocase\">Systematic identification of significantly mutated regions reveals a rich landscape of functional molecular alterations across cancer genomes</span>",
     "type": "article-journal",
@@ -2388,7 +3216,7 @@
         ]
       ]
     },
-    "keyword": "MCell,MMBIOS1-CSP4,MMBIOS1-TRD1,active zone,calcium channels,neuromuscular junction,synapse",
+    "keyword": "MCell,MMBIOS1-CSP4,MMBIOS1-TRD2,active zone,calcium channels,neuromuscular junction,synapse",
     "page": "jn.00879.2014",
     "title": "<span class=\"nocase\">Transmitter release is evoked with low probability predominately by calcium flux through single channel openings at the frog neuromuscular junction</span>",
     "type": "article-journal",
@@ -2764,6 +3592,7 @@
         ]
       ]
     },
+    "keyword": "MMBIOS1-TRD3",
     "page": "294-295",
     "title": "<span class=\"nocase\">Computational analysis of cell images</span>",
     "type": "article-journal",
@@ -2812,7 +3641,7 @@
         ]
       ]
     },
-    "keyword": "HIV,NMR,enzyme,maturation,protein,proteolysis,virus",
+    "keyword": "HIV,MMBIOS1-TRD1,NMR,enzyme,maturation,protein,proteolysis,virus",
     "page": "1526-38",
     "title": "<span class=\"nocase\">Structural integrity of the ribonuclease H domain in HIV-1 reverse transcriptase.</span>",
     "type": "article-journal",
@@ -2881,6 +3710,7 @@
         ]
       ]
     },
+    "keyword": "MMBIOS1-TRD1",
     "page": "243159",
     "title": "<span class=\"nocase\">Tabulation as a high-resolution alternative to coarse-graining protein interactions: Initial application to virus capsid subunits</span>",
     "type": "article-journal",
@@ -3126,6 +3956,7 @@
         ]
       ]
     },
+    "keyword": "MMBIOS1-TRD1",
     "page": "800-809",
     "title": "<span class=\"nocase\">WESTPA: An interoperable, highly scalable software package for weighted ensemble simulation and analysis</span>",
     "type": "article-journal",
@@ -3179,6 +4010,7 @@
         ]
       ]
     },
+    "keyword": "Deb",
     "page": "1280-1289",
     "title": "<span class=\"nocase\">Structural determinants of water permeation through the sodium-galactose transporter vSGLT</span>",
     "type": "article-journal",
@@ -4035,7 +4867,7 @@
         ]
       ]
     },
-    "keyword": "Conformational ensembles,Energy landscapes,Generative models,Inference,Kinetics,Learning,Molecular dynamics,Non-parametric,Parametric,Probabilistic graphical models,Semi-parametric,Thermodynamics",
+    "keyword": "Conformational ensembles,Energy landscapes,Generative models,Inference,Kinetics,Learning,MMBIOS1-TRD1,Molecular dynamics,Non-parametric,Parametric,Probabilistic graphical models,Semi-parametric,Thermodynamics",
     "page": "87-105",
     "title": "<span class=\"nocase\">Generative models of conformational dynamics</span>",
     "type": "article-journal",
@@ -4428,6 +5260,7 @@
         ]
       ]
     },
+    "keyword": "MMBIOS1-TRD1",
     "page": "5161-5177",
     "title": "<span class=\"nocase\">Tunable coarse graining for Monte Carlo simulations of proteins via smoothed energy tables: Direct and exchange simulations</span>",
     "type": "article-journal",
@@ -4521,6 +5354,7 @@
         ]
       ]
     },
+    "keyword": "MMBIOS1-TRD1",
     "page": "2658-2667",
     "title": "<span class=\"nocase\">Simultaneous computation of dynamical and equilibrium information using a weighted ensemble of trajectories</span>",
     "type": "article-journal",
