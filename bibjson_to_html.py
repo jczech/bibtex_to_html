@@ -27,6 +27,21 @@ def get_year(item):
     return int(item['issued']['date-parts'][0][0])
 
 
+def get_vol_issue(bib_entry):
+    try:
+        vol = bib_entry['volume']
+        try:
+            issue = bib_entry['issue']
+            vol_issue = "<span class=\"volume\">%s(%s):</span>" % (vol, issue)
+
+        except KeyError:
+            vol_issue = "<span class=\"volume\">%s:</span>" % (vol)
+    except KeyError:
+        vol_issue = ""
+        print("Warning: no volume listed for the following article:\n%s"
+              "\n" % bib_entry['title'])
+
+
 def get_authors(authors_entry):
     authors = ""
     caps = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -134,18 +149,7 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
             title = (
                 "<span class=\"title\" style=\"color: #2ebbbd;\">"
                 "%s</span>" % (title))
-        try:
-            vol = bib_entry['volume']
-            try:
-                issue = bib_entry['issue']
-                vol_issue = "<span class=\"volume\">%s(%s):</span>" % (vol, issue)
-
-            except KeyError:
-                vol_issue = "<span class=\"volume\">%s:</span>" % (vol)
-        except KeyError:
-            vol_issue = ""
-            print("Warning: no volume listed for the following article:\n%s"
-                  "\n" % bib_entry['title'])
+        vol_issue = get_vol_issue(bib_entry)
         try:
             pages = bib_entry['page']
             pages = "<span class=\"mpgn\">%s</span>" % pages
