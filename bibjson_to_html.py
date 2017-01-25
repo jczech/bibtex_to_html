@@ -145,7 +145,6 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
     tag_dict = generate_tag_dict(bibtex_filename)
     bib_data = generate_bib_data(bibjson_filename)
 
-
     prev_year_int = 0
     html_str = "<meta charset=\"UTF-8\">\n"
     # Bibliography in reverse chronological order (newest first)
@@ -165,11 +164,13 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
         journal = "<span class=\"journal\">%s</span>" % journal
         title = get_title(bib_entry)
         vol_issue = get_vol_issue(bib_entry)
+        # get pages
         try:
             pages = bib_entry['page']
             pages = "<span class=\"mpgn\">%s</span>" % pages
         except KeyError:
             pages = ""
+        # get PMID
         try:
             pmid = bib_entry['PMID']
         except KeyError:
@@ -185,6 +186,7 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
             doi = "doi: %s." % bib_entry['DOI']
         except KeyError:
             doi = ""
+        # Put everything together
         entry = "<p>{}. {} {} <i>{}</i>. {}{}. {} {} {}".format(
             authors, year, title, journal, vol_issue, pages, doi, pmid, tags)
         html_str += "\t\t<li>\n"
