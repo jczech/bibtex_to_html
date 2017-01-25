@@ -23,6 +23,39 @@ link_dict = {
 }
 
 
+def generate_bib_data(bibjson_filename):
+    with open(bibjson_filename) as json_file:
+        try:
+            bib_data = json.load(json_file)
+        except ValueError as e:
+            print("Cannot load JSON file: %s" % e)
+            return
+    return bib_data
+
+
+def generate_tag_dict(bibtex_filename):
+    with open(bibtex_filename) as bibtex_file:
+        try:
+            lines = bibtex_file.readlines()
+            tag = ""
+            tag_dict = {}
+            for l in lines:
+                if ("mendeley-tags" in l):
+                    tag = l.split(" ")[2]
+                    tag = tag[1:-3]
+                    tag_list = tag.split(",")
+                    tag_list = [t.split("-")[1] for t in tag_list if t.startswith("MMBIOS")]
+                elif ("pmid" in l):
+                    pmid = l.split(" ")[2]
+                    pmid = "".join(i for i in pmid if i.isdigit())
+                    if tag:
+                        tag_dict[pmid] = tag_list
+                    tag = ""
+        except ValueError as e:
+            print("Cannot load BibTeX file: %s" % e)
+            return
+    return tag_dict
+
 def get_year(item):
     return int(item['issued']['date-parts'][0][0])
 
@@ -86,33 +119,9 @@ def bibjson_to_html(bibjson_filename, bibtex_filename, output_filename):
     # The bibjson file doesn't contain the mendeley tags, so we have to parse
     # them from the bibtex file. Maybe we should just get everything from the
     # bibtex file using pyparsing or something like that.
-    with open(bibtex_filename) as bibtex_file:
-        try:
-            lines = bibtex_file.readlines()
-            tag = ""
-            tag_dict = {}
-            for l in lines:
-                if ("mendeley-tags" in l):
-                    tag = l.split(" ")[2]
-                    tag = tag[1:-3]
-                    tag_list = tag.split(",")
-                    tag_list = [t.split("-")[1] for t in tag_list if t.startswith("MMBIOS")]
-                elif ("pmid" in l):
-                    pmid = l.split(" ")[2]
-                    pmid = "".join(i for i in pmid if i.isdigit())
-                    if tag:
-                        tag_dict[pmid] = tag_list
-                    tag = ""
-        except ValueError as e:
-            print("Cannot load BibTeX file: %s" % e)
-            return
+    tag_dict = generate_tag_dict(bibtex_filename)
+    bib_data = generate_bib_data(bibjson_filename)
 
-    with open(bibjson_filename) as json_file:
-        try:
-            bib_data = json.load(json_file)
-        except ValueError as e:
-            print("Cannot load JSON file: %s" % e)
-            return
 
     prev_year_int = 0
     html_str = "<meta charset=\"UTF-8\">\n"
