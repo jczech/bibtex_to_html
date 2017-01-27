@@ -162,7 +162,6 @@ def bibjson_to_html(
                          "</span>\n</h1>\n" % (year_int, year_int))
             html_str += "<div class=\"biblio\">\n\t<ul>\n"
         year = "<span class=\"pubdate\">(%d) </span>" % year_int
-        print(bib_entry['author'])
         authors = get_authors(bib_entry['author'])
         journal = bib_entry['container-title']
         journal = "<span class=\"journal\">%s</span>" % journal
