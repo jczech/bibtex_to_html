@@ -1,5 +1,44 @@
 [
   {
+    "DOI": "10.1021/acs.jpcb.6b09876",
+    "ISSN": "1520-6106",
+    "URL": "http://pubs.acs.org/doi/abs/10.1021/acs.jpcb.6b09876",
+    "abstract": "Dimerization is a common feature among the members of the neurotransmitter:sodium symporter (NSS) family of membrane proteins. Yet, the effect of dimerization on the mechanism of action of NSS members is not fully understood. In this study, we examined the collective dynamics of two members of the family, leucine transporter (LeuT) and dopamine transporter (DAT), to assess the significance of dimerization in modulating the functional motions of the monomers. We used to this aim the Anisotropic Network Model (ANM), an efficient and robust method for modeling the intrinsic motions of proteins and their complexes. Transporters belonging to the NSS family are known to alternate between outward-facing (OF) and inward-facing (IF) states, which enables the uptake and release of their substrate (neurotransmitter) respectively, as the substrate is transported from the exterior to the interior of the cell. In both LeuT and DAT, dimerization is found to alter the collective motions intrinsically accessible to the in...",
+    "author": [
+      {
+        "family": "Gur",
+        "given": "Mert"
+      },
+      {
+        "family": "Cheng",
+        "given": "Mary Hongying"
+      },
+      {
+        "family": "Zomot",
+        "given": "Elia"
+      },
+      {
+        "family": "Bahar",
+        "given": "Ivet"
+      }
+    ],
+    "container-title": "The Journal of Physical Chemistry B",
+    "id": "Gur2017",
+    "issued": {
+      "date-parts": [
+        [
+          2017.0,
+          1.0
+        ]
+      ]
+    },
+    "keyword": "MMBIOS1-DBP1,MMBIOS1-TRD1",
+    "page": "acs.jpcb.6b09876",
+    "publisher": "American Chemical Society",
+    "title": "<span class=\"nocase\">Effect of Dimerization on the Dynamics of Neurotransmitter: Sodium Symporters</span>",
+    "type": "article-journal"
+  },
+  {
     "DOI": "10.1073/pnas.1525378113",
     "ISSN": "1091-6490",
     "PMID": "27325773",
@@ -259,6 +298,7 @@
         ]
       ]
     },
+    "keyword": "MMBIOS1-CSP25",
     "page": "3926-47",
     "title": "<span class=\"nocase\">Further along the Road Less Traveled: AMBER ff15ipq, an Original Protein Force Field Built on a Self-Consistent Physical Model.</span>",
     "type": "article-journal",
@@ -430,7 +470,7 @@
         ]
       ]
     },
-    "keyword": "MMBIOS1-TRD2",
+    "keyword": "MMBIOS1-CSP22,MMBIOS1-TRD2",
     "page": "1681-3",
     "title": "Reductionism Is Dead: Long Live Reductionism! Systems Modeling Needs Reductionist Experiments.",
     "type": "article-journal",
@@ -616,6 +656,135 @@
     "volume": "594"
   },
   {
+    "DOI": "10.1038/nchembio.2238",
+    "ISSN": "1552-4450",
+    "PMID": "27842066",
+    "URL": "http://www.ncbi.nlm.nih.gov/pubmed/27842066 http://www.nature.com/doifinder/10.1038/nchembio.2238",
+    "abstract": "Enigmatic lipid peroxidation products have been claimed as the proximate executioners of ferroptosis-a specialized death program triggered by insufficiency of glutathione peroxidase 4 (GPX4). Using quantitative redox lipidomics, reverse genetics, bioinformatics and systems biology, we discovered that ferroptosis involves a highly organized oxygenation center, wherein oxidation in endoplasmic-reticulum-associated compartments occurs on only one class of phospholipids (phosphatidylethanolamines (PEs)) and is specific toward two fatty acyls-arachidonoyl (AA) and adrenoyl (AdA). Suppression of AA or AdA esterification into PE by genetic or pharmacological inhibition of acyl-CoA synthase 4 (ACSL4) acts as a specific antiferroptotic rescue pathway. Lipoxygenase (LOX) generates doubly and triply-oxygenated (15-hydroperoxy)-diacylated PE species, which act as death signals, and tocopherols and tocotrienols (vitamin E) suppress LOX and protect against ferroptosis, suggesting a homeostatic physiological role for vitamin E. This oxidative PE death pathway may also represent a target for drug discovery.",
+    "author": [
+      {
+        "family": "Kagan",
+        "given": "Valerian E"
+      },
+      {
+        "family": "Mao",
+        "given": "Gaowei"
+      },
+      {
+        "family": "Qu",
+        "given": "Feng"
+      },
+      {
+        "family": "Angeli",
+        "given": "Jose Pedro Friedmann"
+      },
+      {
+        "family": "Doll",
+        "given": "Sebastian"
+      },
+      {
+        "family": "Croix",
+        "given": "Claudette St"
+      },
+      {
+        "family": "Dar",
+        "given": "Haider Hussain"
+      },
+      {
+        "family": "Liu",
+        "given": "Bing"
+      },
+      {
+        "family": "Tyurin",
+        "given": "Vladimir A"
+      },
+      {
+        "family": "Ritov",
+        "given": "Vladimir B"
+      },
+      {
+        "family": "Kapralov",
+        "given": "Alexandr A"
+      },
+      {
+        "family": "Amoscato",
+        "given": "Andrew A"
+      },
+      {
+        "family": "Jiang",
+        "given": "Jianfei"
+      },
+      {
+        "family": "Anthonymuthu",
+        "given": "Tamil"
+      },
+      {
+        "family": "Mohammadyani",
+        "given": "Dariush"
+      },
+      {
+        "family": "Yang",
+        "given": "Qin"
+      },
+      {
+        "family": "Proneth",
+        "given": "Bettina"
+      },
+      {
+        "family": "Klein-Seetharaman",
+        "given": "Judith"
+      },
+      {
+        "family": "Watkins",
+        "given": "Simon"
+      },
+      {
+        "family": "Bahar",
+        "given": "Ivet"
+      },
+      {
+        "family": "Greenberger",
+        "given": "Joel"
+      },
+      {
+        "family": "Mallampalli",
+        "given": "Rama K"
+      },
+      {
+        "family": "Stockwell",
+        "given": "Brent R"
+      },
+      {
+        "family": "Tyurina",
+        "given": "Yulia Y"
+      },
+      {
+        "family": "Conrad",
+        "given": "Marcus"
+      },
+      {
+        "family": "Bayır",
+        "given": "Hülya"
+      }
+    ],
+    "container-title": "Nature Chemical Biology",
+    "id": "Kagan2016",
+    "issue": "1",
+    "issued": {
+      "date-parts": [
+        [
+          2016.0,
+          11.0
+        ]
+      ]
+    },
+    "keyword": "MMBIOS1-TRD1",
+    "page": "81-90",
+    "title": "<span class=\"nocase\">Oxidized arachidonic and adrenic PEs navigate cells to ferroptosis</span>",
+    "type": "article-journal",
+    "volume": "13"
+  },
+  {
     "DOI": "10.1109/TIP.2015.2509419",
     "ISSN": "1941-0042",
     "PMID": "26685245",
@@ -730,7 +899,6 @@
     ],
     "container-title": "Nature",
     "id": "Lee2016",
-    "issue": "Table 1",
     "issued": {
       "date-parts": [
         [
@@ -942,7 +1110,7 @@
         ]
       ]
     },
-    "keyword": "CD4 T cell differentiation,Cytokine networks,MMBIOS1-TRD2,Mathematical modeling,Single-cell analysis",
+    "keyword": "CD4 T cell differentiation,Cytokine networks,MMBIOS1-CSP22,MMBIOS1-TRD2,Mathematical modeling,Single-cell analysis",
     "title": "<span class=\"nocase\">Demystifying the cytokine network: Mathematical models point the way.</span>",
     "type": "article-journal"
   },
@@ -980,7 +1148,7 @@
         ]
       ]
     },
-    "keyword": "MMBIOS1-TRD3",
+    "keyword": "MMBIOS1-CSP10,MMBIOS1-TRD3",
     "page": "192-206",
     "title": "<span class=\"nocase\">The Fuzzy Logic of Network Connectivity in Mouse Visual Thalamus</span>",
     "type": "article-journal",
@@ -1515,7 +1683,7 @@
         ]
       ]
     },
-    "keyword": "MMBIOS1-TRD1,first-passage time,non-Markovian,rare event,weighted ensemble",
+    "keyword": "MMBIOS1-CSP25,MMBIOS1-TRD1,first-passage time,non-Markovian,rare event,weighted ensemble",
     "page": "67-78",
     "title": "<span class=\"nocase\">Estimating first-passage time distributions from weighted ensemble simulations and non-Markovian analyses</span>",
     "type": "article-journal",
@@ -1975,7 +2143,7 @@
         ]
       ]
     },
-    "keyword": "MMBIOS1-TRD1",
+    "keyword": "MMBIOS1-DBP1,MMBIOS1-TRD1",
     "page": "2171-2181",
     "title": "<span class=\"nocase\">Molecular Mechanism of Dopamine Transport by Human Dopamine Transporter</span>",
     "type": "article-journal",
@@ -2530,7 +2698,7 @@
         ]
       ]
     },
-    "keyword": "MMBIOS1-TRD2",
+    "keyword": "MMBIOS1-CSP22,MMBIOS1-TRD2",
     "page": "4615-9",
     "title": "<span class=\"nocase\">Cutting Edge: Differential Regulation of PTEN by TCR, Akt, and FoxO1 Controls CD4+ T Cell Fate Decisions.</span>",
     "type": "article-journal",
@@ -3349,7 +3517,7 @@
         ]
       ]
     },
-    "keyword": "MMBIOS1-TRD1",
+    "keyword": "MMBIOS1-CSP1,MMBIOS1-TRD1",
     "page": "1929-1937",
     "title": "<span class=\"nocase\">Comparative study of the effectiveness and limitations of current methods for detecting sequence coevolution</span>",
     "type": "article-journal",
@@ -3882,7 +4050,7 @@
         ]
       ]
     },
-    "keyword": "Biophysics,LeuT,MMBIOS1-TRD1,Mechanism of Binding,Membrane Transport,NSS,Neurotransmitter Transport,Sodium Transport,Sodium-coupled,Transport",
+    "keyword": "Biophysics,LeuT,MMBIOS1-DBP1,MMBIOS1-TRD1,Mechanism of Binding,Membrane Transport,NSS,Neurotransmitter Transport,Sodium Transport,Sodium-coupled,Transport",
     "page": "544-555",
     "title": "<span class=\"nocase\">Microseconds simulations reveal a new sodium-binding site and the mechanism of sodium-coupled substrate uptake by LeuT</span>",
     "type": "article-journal",
@@ -3956,7 +4124,7 @@
         ]
       ]
     },
-    "keyword": "MMBIOS1-TRD1",
+    "keyword": "MMBIOS1-CSP25,MMBIOS1-TRD1",
     "page": "800-809",
     "title": "<span class=\"nocase\">WESTPA: An interoperable, highly scalable software package for weighted ensemble simulation and analysis</span>",
     "type": "article-journal",
@@ -4292,7 +4460,7 @@
         ]
       ]
     },
-    "keyword": "MMBIOS1-CSP5,MMBIOS1-TRD2",
+    "keyword": "MMBIOS1-CSP5,MMBIOS1-TRD2,MMBIOS2-CSP33",
     "page": "13-36",
     "title": "<span class=\"nocase\">Rule-based modeling: A computational approach for studying biomolecular site dynamics in cell signaling systems</span>",
     "type": "article-journal",
@@ -4342,7 +4510,7 @@
         ]
       ]
     },
-    "keyword": "MMBIOS1-TRD1",
+    "keyword": "MMBIOS1-CSP2,MMBIOS1-TRD1",
     "page": "e1003521",
     "title": "<span class=\"nocase\">Exploring the Conformational Transitions of Biomolecular Systems Using a Simple Two-State Anisotropic Network Model</span>",
     "type": "article-journal",
@@ -4380,6 +4548,7 @@
         ]
       ]
     },
+    "keyword": "MMBIOS1-CSP25",
     "page": "6561-6569",
     "title": "<span class=\"nocase\">Evaluating the strength of salt bridges: A comparison of current biomolecular force fields</span>",
     "type": "article-journal",
@@ -5354,7 +5523,7 @@
         ]
       ]
     },
-    "keyword": "MMBIOS1-TRD1",
+    "keyword": "MMBIOS1-CSP25,MMBIOS1-TRD1",
     "page": "2658-2667",
     "title": "<span class=\"nocase\">Simultaneous computation of dynamical and equilibrium information using a weighted ensemble of trajectories</span>",
     "type": "article-journal",
@@ -6190,7 +6359,7 @@
         ]
       ]
     },
-    "keyword": "MMBIOS1-TRD2",
+    "keyword": "MMBIOS1-CSP5,MMBIOS1-TRD2",
     "page": "030301",
     "title": "<span class=\"nocase\">Special section dedicated to The Sixth q-bio Conference: meeting report and</span>",
     "type": "article-journal",
@@ -6533,7 +6702,7 @@
         ]
       ]
     },
-    "keyword": "MMBIOS1-TRD1",
+    "keyword": "MMBIOS1-DBP1,MMBIOS1-TRD1",
     "page": "8231-8237",
     "title": "<span class=\"nocase\">Intracellular gating in an inward-facing state of aspartate transporter GltPh is regulated by the movements of the helical hairpin HP2</span>",
     "type": "article-journal",
