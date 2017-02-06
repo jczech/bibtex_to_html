@@ -27,7 +27,7 @@ journal = "journal" + eq + wrapped
 keywords = "keywords" + eq + wrapped
 mendeley = "mendeley-tags" + eq + wrapped
 month = "month" + eq + wrapped
-number = "number" + eq + wrapped_num + comma
+number = "number" + eq + wrapped_num + comma # issue
 pages = "pages" + eq + wrapped
 pmid = "pmid" + eq + wrapped
 publisher = "publisher" + eq + wrapped
@@ -37,7 +37,8 @@ other = pp.Word(pp.alphas) + eq + wrapped
 volume = "volume" + eq + wrapped_num + comma
 year = "year" + eq + wrapped_num
 
-unit = author | doi | volume | year | pmid | mendeley | title | pp.Suppress(other)
+unit = (author | year | title | journal | volume | number | pages | doi |
+        pmid | mendeley | pp.Suppress(other))
 
 entry = pp.OneOrMore(
     article_start + lbr + author_year + comma + pp.OneOrMore(unit) + rbr)
@@ -56,7 +57,10 @@ def main():
         # print(lines)
         data = entry.parseString(lines)
         for d in data:
-            print(d)
+            if type(d) == str:
+                print(d)
+            else:
+                print(d[0])
 
 
 if __name__ == "__main__":
