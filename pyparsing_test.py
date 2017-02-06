@@ -30,16 +30,22 @@ rbr = pp.Suppress("}")
 atom = pp.CharsNotIn("{}") 
 sentence = pp.Group(pp.OneOrMore(atom))
 wrapped = lbr + sentence + rbr + pp.Optional(comma)
-wrapped_authors = lbr + pp.restOfLine
+wrapped_messy = lbr + pp.restOfLine
 wrapped_title = lbr + lbr + pp.restOfLine
 wrapped_num = lbr + pp.Word(pp.nums) + rbr
 
-def save_author(s, l, t):
-    # Ugh. Need to strip off trailing "}," because I'm not sure how to handle
-    # the curly braces nested inside of authors list 
-    # (e.g author = {Czech, Jacob and Name, We{\^{i}}t}rd})
+def strip_one(s, l, t):
+    print(t)
+    articles[-1][t[0]] = t[1][:-1] 
+
+def strip_two(s, l, t):
     articles[-1][t[0]] = t[1][:-2] 
-    # articles[-1][t[0]] = re.sub('', '', t[1][:-2])
+
+def strip_three(s, l, t):
+    articles[-1][t[0]] = t[1][:-3] 
+
+def save_url(s, l, t):
+    articles[-1][t[0]] = t[1][0].split(" ")[0]
 
 def save_list_entry(s, l, t):
     articles[-1][t[0]] = t[1][0]
@@ -47,16 +53,16 @@ def save_list_entry(s, l, t):
 def save_string_entry(s, l, t):
     articles[-1][t[0]] = t[1]
 
-authors = ("author" + eq + wrapped_authors).setParseAction(save_author)
+authors = ("author" + eq + wrapped_messy).setParseAction(strip_two)
 doi = ("doi" + eq + wrapped).setParseAction(save_list_entry)
-journal = ("journal" + eq + wrapped).setParseAction(save_list_entry)
+journal = ("journal" + eq + wrapped_messy).setParseAction(strip_two)
 mendeley = ("mendeley-tags" + eq + wrapped).setParseAction(save_list_entry)
 number = ("number" + eq + wrapped_num + comma).setParseAction(save_list_entry) # issue
 pages = ("pages" + eq + wrapped).setParseAction(save_list_entry)
 pmid = ("pmid" + eq + wrapped).setParseAction(save_list_entry)
 publisher = ("publisher" + eq + wrapped).setParseAction(save_list_entry)
-title = ("title" + eq + wrapped_title).setParseAction(save_list_entry)
-url = ("url" + eq + wrapped).setParseAction(save_list_entry)
+title = ("title" + eq + wrapped_title).setParseAction(strip_three)
+url = ("url" + eq + wrapped).setParseAction(save_url)
 volume = ("volume" + eq + wrapped_num + comma).setParseAction(save_string_entry)
 year = ("year" + eq + wrapped_num).setParseAction(save_string_entry)
 other = pp.Word(pp.alphas) + eq + pp.restOfLine
@@ -105,10 +111,12 @@ def main():
                 title = (
                     "<span class=\"title\" style=\"color: #2ebbbd;\">"
                     "%s</span>" % (article['title']))
+            journal = "<span class=\"journal\">%s</span>" % article['journal']
             print("-"*40)
+            print(journal)
             print(author)
             print(title)
-            print(year)
+            # print(year)
             # if type(d) == str:
             #     print("-"*40)
             # else:
