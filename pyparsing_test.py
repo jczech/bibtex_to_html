@@ -18,7 +18,7 @@ link_dict = {
 
 article_start = pp.Literal("@article")
 inproceedings = pp.Literal("@inproceedings")
-author_year = pp.Suppress(pp.restOfLine())
+author_year = pp.Suppress(pp.restOfLine)
 comma = pp.Suppress(",")
 eq = pp.Suppress("=")
 
@@ -42,7 +42,7 @@ title = ("title" + eq + wrapped_title).setParseAction(lambda s, l, t: (t[0], t[1
 url = ("url" + eq + wrapped).setParseAction(lambda s, l, t: (t[0], t[1][0]))
 volume = ("volume" + eq + wrapped_num + comma).setParseAction(lambda s, l, t: (t[0], t[1]))
 year = ("year" + eq + wrapped_num).setParseAction(lambda s, l, t: (t[0], t[1]))
-other = pp.Word(pp.alphas) + eq + pp.restOfLine()
+other = pp.Word(pp.alphas) + eq + pp.restOfLine
 
 unit = (authors | year | title | journal | volume | number | pages | doi |
         pmid | mendeley | url | pp.Suppress(other))
@@ -81,6 +81,8 @@ def main():
             else:
                 if d[0] == "author":
                     print(get_authors(d[1]))
+                elif d[0] == "year":
+                    print("<span class=\"pubdate\">(%s) </span>" % d[1])
                 else:
                     print(d[1])
 
