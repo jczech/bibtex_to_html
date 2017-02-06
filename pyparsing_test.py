@@ -4,8 +4,9 @@ import pyparsing as pp
 from string import lowercase
 from pprint import pprint
 
-article_start = pp.Word("@article")
-author_year = pp.Suppress(pp.Word(pp.alphanums))
+article_start = pp.Literal("@article")
+inproceedings = pp.Literal("@inproceedings")
+author_year = pp.Suppress(pp.restOfLine())
 comma = pp.Suppress(",")
 eq = pp.Suppress("=")
 
@@ -30,22 +31,21 @@ title = "title" + eq + wrapped_title
 url = "url" + eq + wrapped
 volume = "volume" + eq + wrapped_num + comma
 year = "year" + eq + wrapped_num
-other = pp.Word(pp.alphas) + eq + wrapped
+other = pp.Word(pp.alphas) + eq + pp.restOfLine()
 
 unit = (authors | year | title | journal | volume | number | pages | doi |
         pmid | mendeley | url | pp.Suppress(other))
 
 entry = pp.OneOrMore(
-    article_start + lbr + author_year + comma + pp.OneOrMore(unit) + rbr)
+    (article_start | inproceedings) + lbr + author_year + pp.OneOrMore(unit) + rbr)
 
 def main():
     with open("mmbios.bib", "r") as bib_file:
         lines = bib_file.read()
-        # print(lines)
         data = entry.parseString(lines)
         for d in data:
             if type(d) == str:
-                if d == "@article":
+                if d.startswith("@"):
                     print("-"*40)
                 else:
                     print(d)
