@@ -31,7 +31,7 @@ atom = pp.CharsNotIn("{}")
 sentence = pp.Group(pp.OneOrMore(atom))
 wrapped = lbr + sentence + rbr + pp.Optional(comma)
 wrapped_authors = lbr + pp.restOfLine
-wrapped_title = lbr + lbr + sentence + rbr + rbr + pp.Optional(comma)
+wrapped_title = lbr + lbr + pp.restOfLine
 wrapped_num = lbr + pp.Word(pp.nums) + rbr
 
 def save_author(s, l, t):
@@ -97,8 +97,17 @@ def main():
             # pprint(article)
             author = get_authors(article['author'])
             year = "<span class=\"pubdate\">(%s) </span>" % article['year']
+            try:
+                title = (
+                    "<span class=\"title\" style=\"color: #2ebbbd;\">"
+                    "<a href = \"%s\">%s</a></span>" % (article['url'], article['title']))
+            except KeyError:
+                title = (
+                    "<span class=\"title\" style=\"color: #2ebbbd;\">"
+                    "%s</span>" % (article['title']))
             print("-"*40)
             print(author)
+            print(title)
             print(year)
             # if type(d) == str:
             #     print("-"*40)
