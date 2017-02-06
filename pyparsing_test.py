@@ -94,8 +94,12 @@ def main():
         data = entry.parseString(lines)
         # print(data)
         for article in articles:
-            pprint(article)
-            author = get_authors(article["author"])
+            # pprint(article)
+            author = get_authors(article['author'])
+            year = "<span class=\"pubdate\">(%s) </span>" % article['year']
+            print("-"*40)
+            print(author)
+            print(year)
             # if type(d) == str:
             #     print("-"*40)
             # else:
