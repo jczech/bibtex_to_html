@@ -99,6 +99,53 @@ def get_title(article):
     return title
 
 
+def get_vol_issue(article):
+    vol_issue = ""
+    try:
+        vol = article['volume']
+        try:
+            issue = article['number']
+            vol_issue = "<span class=\"volume\">%s(%s):</span>" % (vol, issue)
+
+        except KeyError:
+            vol_issue = "<span class=\"volume\">%s:</span>" % (vol)
+    except KeyError:
+        vol_issue = ""
+
+def get_tags(article):
+    tags = ""
+    try:
+        for tag in article['mendeley-tags'].split(","):
+            if tag.startswith("MMBIOS1-TRD"):
+                tag = tag[8:]
+                tag_type = "trd_pub"
+                url = link_dict[tag]
+            elif tag.startswith("MMBIOS1-DBP"):
+                tag = tag[8:]
+                tag_type = "dbp_pub"
+                url = link_dict[tag]
+            elif tag.startswith("MMBIOS1-CSP"):
+                tag = tag[8:]
+                tag_type = "csp_pub"
+                url = "research/collaboration-service"
+            else:
+                continue
+            url = "http://mmbios.org/%s" % url
+            tags += (
+                "<a href=\"%s\" class=%s>%s</a> " % (url, tag_type, tag))
+    except KeyError:
+        pass
+
+
+def get_pages(article):
+    try:
+        pages = article['pages']
+        pages = pages.replace("--", "-")
+        pages = "<span class=\"mpgn\">%s</span>" % pages
+    except KeyError:
+        pages = ""
+
+
 def bibtex_to_html(bibtex_filename: str, output_filename: str):
     prev_year_int = 0
     html_str = "<meta charset=\"UTF-8\">\n"
@@ -117,7 +164,6 @@ def bibtex_to_html(bibtex_filename: str, output_filename: str):
             year = "<span class=\"pubdate\">(%s) </span>" % article['year']
             title = get_title(article)
             journal = "<span class=\"journal\">%s</span>" % article['journal']
-            vol_issue = ""
             try:
                 doi = "doi: %s." % article['doi']
             except KeyError:
@@ -126,46 +172,9 @@ def bibtex_to_html(bibtex_filename: str, output_filename: str):
                 pmid = "<span class=\"pmid\">PMID:%s</span>" % article['pmid']
             except KeyError:
                 pmid = ""
-            try:
-                vol = article['volume']
-                try:
-                    issue = article['number']
-                    vol_issue = "<span class=\"volume\">%s(%s):</span>" % (vol, issue)
-
-                except KeyError:
-                    vol_issue = "<span class=\"volume\">%s:</span>" % (vol)
-            except KeyError:
-                vol_issue = ""
-                # print("Warning: no volume listed for the following article:\n%s"
-                #       "\n" % article['title'])
-            tags = ""
-            try:
-                for tag in article['mendeley-tags'].split(","):
-                    if tag.startswith("MMBIOS1-TRD"):
-                        tag = tag[8:]
-                        tag_type = "trd_pub"
-                        url = link_dict[tag]
-                    elif tag.startswith("MMBIOS1-DBP"):
-                        tag = tag[8:]
-                        tag_type = "dbp_pub"
-                        url = link_dict[tag]
-                    elif tag.startswith("MMBIOS1-CSP"):
-                        tag = tag[8:]
-                        tag_type = "csp_pub"
-                        url = "research/collaboration-service"
-                    else:
-                        continue
-                    url = "http://mmbios.org/%s" % url
-                    tags += (
-                        "<a href=\"%s\" class=%s>%s</a> " % (url, tag_type, tag))
-            except KeyError:
-                pass
-            try:
-                pages = article['pages']
-                pages = pages.replace("--", "-")
-                pages = "<span class=\"mpgn\">%s</span>" % pages
-            except KeyError:
-                pages = ""
+            vol_issue = get_vol_issue(article)
+            tags = get_tags(article)
+            pages = get_pages(article)
             formatted_entry = "<p>{}. {} {}. <i>{}</i>. {}{}. {} {} {}".format(
                 author, year, title, journal, vol_issue, pages, doi, pmid,
                 tags)
