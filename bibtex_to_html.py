@@ -1,8 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import pyparsing as pp
-import re
-from pprint import pprint
 import argparse
 
 link_dict = {
@@ -34,22 +32,22 @@ wrapped_messy = lbr + pp.restOfLine
 wrapped_title = lbr + lbr + pp.restOfLine
 wrapped_num = lbr + pp.Word(pp.nums) + rbr
 
-def strip_one(s, l, t):
+def strip_one(s, l, t) -> None:
     articles[-1][t[0]] = t[1][:-1] 
 
-def strip_two(s, l, t):
+def strip_two(s, l, t) -> None:
     articles[-1][t[0]] = t[1][:-2] 
 
-def strip_three(s, l, t):
+def strip_three(s, l, t) -> None:
     articles[-1][t[0]] = t[1][:-3] 
 
-def save_url(s, l, t):
+def save_url(s, l, t) -> None:
     articles[-1][t[0]] = t[1][0].split(" ")[0]
 
-def save_list_entry(s, l, t):
+def save_list_entry(s, l, t) -> None:
     articles[-1][t[0]] = t[1][0]
 
-def save_string_entry(s, l, t):
+def save_string_entry(s, l, t) -> None:
     articles[-1][t[0]] = t[1]
 
 authors = ("author" + eq + wrapped_messy).setParseAction(strip_two)
@@ -73,7 +71,7 @@ entry = pp.OneOrMore(
     (article_start | inproceedings) + lbr + author_year + pp.OneOrMore(unit) +
     rbr)
 
-def get_authors(authors_entry):
+def get_authors(authors_entry: str):
     authors = ""
     caps = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     for idx, author in enumerate(authors_entry.split(" and ")):
@@ -86,6 +84,19 @@ def get_authors(authors_entry):
         authors += "<span class=\"author\">%s %s</span>, " % (
             surname, initials)
     return authors[:-2]
+
+def get_title(article):
+    if article['title'].endswith("."):
+        article['title'] = article['title'][:-1]
+    try:
+        title = (
+            "<span class=\"title\" style=\"color: #2ebbbd;\">"
+            "<a href = \"%s\">%s</a></span>" % (article['url'], article['title']))
+    except KeyError:
+        title = (
+            "<span class=\"title\" style=\"color: #2ebbbd;\">"
+            "%s</span>" % (article['title']))
+    return title
 
 
 def bibtex_to_html(bibtex_filename: str, output_filename: str):
@@ -104,16 +115,7 @@ def bibtex_to_html(bibtex_filename: str, output_filename: str):
                              "</span>\n</h1>\n" % (year_int, year_int))
                 html_str += "<div class=\"biblio\">\n\t<ul>\n"
             year = "<span class=\"pubdate\">(%s) </span>" % article['year']
-            if article['title'].endswith("."):
-                article['title'] = article['title'][:-1]
-            try:
-                title = (
-                    "<span class=\"title\" style=\"color: #2ebbbd;\">"
-                    "<a href = \"%s\">%s</a></span>" % (article['url'], article['title']))
-            except KeyError:
-                title = (
-                    "<span class=\"title\" style=\"color: #2ebbbd;\">"
-                    "%s</span>" % (article['title']))
+            title = get_title(article)
             journal = "<span class=\"journal\">%s</span>" % article['journal']
             vol_issue = ""
             try:
