@@ -104,6 +104,8 @@ def bibtex_to_html(bibtex_filename: str, output_filename: str):
                              "</span>\n</h1>\n" % (year_int, year_int))
                 html_str += "<div class=\"biblio\">\n\t<ul>\n"
             year = "<span class=\"pubdate\">(%s) </span>" % article['year']
+            if article['title'].endswith("."):
+                article['title'] = article['title'][:-1]
             try:
                 title = (
                     "<span class=\"title\" style=\"color: #2ebbbd;\">"
@@ -162,8 +164,9 @@ def bibtex_to_html(bibtex_filename: str, output_filename: str):
                 pages = "<span class=\"mpgn\">%s</span>" % pages
             except KeyError:
                 pages = ""
-            formatted_entry = "<p>{}. {} {} <i>{}</i>. {}{}. {} {} {}".format(
-                author, year, title, journal, vol_issue, pages, doi, pmid, tags)
+            formatted_entry = "<p>{}. {} {}. <i>{}</i>. {}{}. {} {} {}".format(
+                author, year, title, journal, vol_issue, pages, doi, pmid,
+                tags)
             html_str += "\t\t<li>\n"
             html_str += "\t\t\t%s\n" % formatted_entry
             html_str += "\t\t\t</p>\n"
