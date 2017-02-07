@@ -179,7 +179,7 @@ def bibtex_to_html(bibtex_filename: str, output_filename: str):
 
 def setup_argparser():
     parser = argparse.ArgumentParser(
-        description="Convert BibJSON to marked up HTML:")
+        description="Convert BibTeX to marked up HTML:")
     parser.add_argument("bibtex", help="BibTeX file to be converted")
     parser.add_argument(
         "-o", "--output", help="output html file")
