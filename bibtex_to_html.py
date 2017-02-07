@@ -1,88 +1,91 @@
 #!/usr/bin/env python3
 
-from typing import List, Dict
+from typing import Dict
 import pyparsing as pp
 import argparse
 
-link_dict = {
-    "DBP1": "research/driving-biomedical-projects/glutamate-transport",
-    "DBP2": "research/driving-biomedical-projects/synaptic-signaling",
-    "DBP3": "research/driving-biomedical-projects/dat-function",
-    "DBP4": "research/driving-biomedical-projects/t-cell-signaling",
-    "DBP5": "research/driving-biomedical-projects/neural-circuits",
-    "TRD1": "research/technology-research-and-development/molecular-modeling",
-    "TRD2": "research/technology-research-and-development/cell-modeling",
-    "TRD3": "research/technology-research-and-development/image-processing",
-    "CSP":  "research/collaboration-service",
-}
-
-articles = []
-
-article_start = pp.Literal("@article").setParseAction(
-        lambda s, l, t: articles.append({}))
-inproceedings = pp.Literal("@inproceedings")
-author_year = pp.Suppress(pp.restOfLine)
-comma = pp.Suppress(",")
-eq = pp.Suppress("=")
-
-lbr = pp.Suppress("{")
-rbr = pp.Suppress("}")
-atom = pp.CharsNotIn("{}")
-sentence = pp.Group(pp.OneOrMore(atom))
-wrapped = lbr + sentence + rbr + pp.Optional(comma)
-wrapped_messy = lbr + pp.restOfLine
-wrapped_title = lbr + lbr + pp.restOfLine
-wrapped_num = lbr + pp.Word(pp.nums) + rbr
 
 
-def strip_one(s, l, t) -> None:
-    articles[-1][t[0]] = t[1][:-1]
+class BibTexParser():
+    link_dict = {
+        "DBP1": "research/driving-biomedical-projects/glutamate-transport",
+        "DBP2": "research/driving-biomedical-projects/synaptic-signaling",
+        "DBP3": "research/driving-biomedical-projects/dat-function",
+        "DBP4": "research/driving-biomedical-projects/t-cell-signaling",
+        "DBP5": "research/driving-biomedical-projects/neural-circuits",
+        "TRD1": "research/technology-research-and-development/molecular-modeling",
+        "TRD2": "research/technology-research-and-development/cell-modeling",
+        "TRD3": "research/technology-research-and-development/image-processing",
+        "CSP":  "research/collaboration-service",
+    }
+
+    articles = []
+
+    article_start = pp.Literal("@article").setParseAction(
+            lambda s, l, t: BibTexParser.articles.append({}))
+    inproceedings = pp.Literal("@inproceedings")
+    author_year = pp.Suppress(pp.restOfLine)
+    comma = pp.Suppress(",")
+    eq = pp.Suppress("=")
+
+    lbr = pp.Suppress("{")
+    rbr = pp.Suppress("}")
+    atom = pp.CharsNotIn("{}")
+    sentence = pp.Group(pp.OneOrMore(atom))
+    wrapped = lbr + sentence + rbr + pp.Optional(comma)
+    wrapped_messy = lbr + pp.restOfLine
+    wrapped_title = lbr + lbr + pp.restOfLine
+    wrapped_num = lbr + pp.Word(pp.nums) + rbr
 
 
-def strip_two(s, l, t) -> None:
-    articles[-1][t[0]] = t[1][:-2]
+    def strip_one(s, l, t) -> None:
+        BibTexParser.articles[-1][t[0]] = t[1][:-1]
 
 
-def strip_three(s, l, t) -> None:
-    articles[-1][t[0]] = t[1][:-3]
+    def strip_two(s, l, t) -> None:
+        BibTexParser.articles[-1][t[0]] = t[1][:-2]
 
 
-def save_url(s, l, t) -> None:
-    articles[-1][t[0]] = t[1][0].split(" ")[0]
+    def strip_three(s, l, t) -> None:
+        BibTexParser.articles[-1][t[0]] = t[1][:-3]
 
 
-def save_list_entry(s, l, t) -> None:
-    articles[-1][t[0]] = t[1][0]
+    def save_url(s, l, t) -> None:
+        BibTexParser.articles[-1][t[0]] = t[1][0].split(" ")[0]
 
 
-def save_string_entry(s, l, t) -> None:
-    articles[-1][t[0]] = t[1]
+    def save_list_entry(s, l, t) -> None:
+        BibTexParser.articles[-1][t[0]] = t[1][0]
 
 
-authors = ("author" + eq + wrapped_messy).setParseAction(strip_two)
-doi = ("doi" + eq + wrapped).setParseAction(save_list_entry)
-journal = ("journal" + eq + wrapped_messy).setParseAction(strip_two)
-mendeley = ("mendeley-tags" + eq + wrapped).setParseAction(save_list_entry)
-issue = ("number" + eq + wrapped_num + comma).setParseAction(save_list_entry)
-pages = ("pages" + eq + wrapped).setParseAction(save_list_entry)
-pmid = ("pmid" + eq + wrapped).setParseAction(save_list_entry)
-publisher = ("publisher" + eq + wrapped).setParseAction(save_list_entry)
-title = ("title" + eq + wrapped_title).setParseAction(strip_three)
-url = ("url" + eq + wrapped).setParseAction(save_url)
-volume = ("volume" + eq + wrapped_num + comma).setParseAction(
-        save_string_entry)
-year = ("year" + eq + wrapped_num).setParseAction(save_string_entry)
-other = pp.Word(pp.alphas) + eq + pp.restOfLine
-
-unit = (authors | year | title | journal | volume | issue | pages | doi |
-        pmid | mendeley | url | pp.Suppress(other))
-
-entry = pp.OneOrMore(
-    (article_start | inproceedings) + lbr + author_year + pp.OneOrMore(unit) +
-    rbr)
+    def save_string_entry(s, l, t) -> None:
+        BibTexParser.articles[-1][t[0]] = t[1]
 
 
-def get_authors(authors_entry: str):
+    authors = ("author" + eq + wrapped_messy).setParseAction(strip_two)
+    doi = ("doi" + eq + wrapped).setParseAction(save_list_entry)
+    journal = ("journal" + eq + wrapped_messy).setParseAction(strip_two)
+    mendeley = ("mendeley-tags" + eq + wrapped).setParseAction(save_list_entry)
+    issue = ("number" + eq + wrapped_num + comma).setParseAction(save_list_entry)
+    pages = ("pages" + eq + wrapped).setParseAction(save_list_entry)
+    pmid = ("pmid" + eq + wrapped).setParseAction(save_list_entry)
+    publisher = ("publisher" + eq + wrapped).setParseAction(save_list_entry)
+    title = ("title" + eq + wrapped_title).setParseAction(strip_three)
+    url = ("url" + eq + wrapped).setParseAction(save_url)
+    volume = ("volume" + eq + wrapped_num + comma).setParseAction(
+            save_string_entry)
+    year = ("year" + eq + wrapped_num).setParseAction(save_string_entry)
+    other = pp.Word(pp.alphas) + eq + pp.restOfLine
+
+    unit = (authors | year | title | journal | volume | issue | pages | doi |
+            pmid | mendeley | url | pp.Suppress(other))
+
+    entry = pp.OneOrMore(
+        (article_start | inproceedings) + lbr + author_year + pp.OneOrMore(unit) +
+        rbr)
+
+
+def get_authors(authors_entry: str) -> str:
     authors = ""
     caps = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     for idx, author in enumerate(authors_entry.split(" and ")):
@@ -97,7 +100,7 @@ def get_authors(authors_entry: str):
     return authors[:-2]
 
 
-def get_title(article):
+def get_title(article: Dict) -> str:
     if article['title'].endswith("."):
         article['title'] = article['title'][:-1]
     try:
@@ -112,7 +115,7 @@ def get_title(article):
     return title
 
 
-def get_vol_issue(article):
+def get_vol_issue(article: Dict) -> str:
     vol_issue = ""
     try:
         vol = article['volume']
@@ -134,11 +137,11 @@ def get_tags(article: Dict):
             if tag.startswith("MMBIOS1-TRD"):
                 tag = tag[8:]
                 tag_type = "trd_pub"
-                url = link_dict[tag]
+                url = BibTexParser.link_dict[tag]
             elif tag.startswith("MMBIOS1-DBP"):
                 tag = tag[8:]
                 tag_type = "dbp_pub"
-                url = link_dict[tag]
+                url = BibTexParser.link_dict[tag]
             elif tag.startswith("MMBIOS1-CSP"):
                 tag = tag[8:]
                 tag_type = "csp_pub"
@@ -153,7 +156,7 @@ def get_tags(article: Dict):
     return tags
 
 
-def get_pages(article):
+def get_pages(article: Dict) -> str:
     try:
         pages = article['pages']
         pages = pages.replace("--", "-")
@@ -163,13 +166,13 @@ def get_pages(article):
     return pages
 
 
-def bibtex_to_html(bibtex_filename: str, output_filename: str):
+def bibtex_to_html(bibtex_filename: str, output_filename: str) -> None:
     prev_year_int = 0
     html_str = "<meta charset=\"UTF-8\">\n"
     with open(bibtex_filename, "r", encoding="utf8") as bib_file:
         lines = bib_file.read()
-        data = entry.parseString(lines)
-        for article in articles:
+        data = BibTexParser.entry.parseString(lines)
+        for article in BibTexParser.articles:
             author = get_authors(article['author'])
             year_int = int(article['year'])
             if (year_int != prev_year_int):
