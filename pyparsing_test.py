@@ -3,6 +3,7 @@
 import pyparsing as pp
 import re
 from pprint import pprint
+import argparse
 
 link_dict = {
     "DBP1": "research/driving-biomedical-projects/glutamate-transport",
@@ -84,19 +85,17 @@ def get_authors(authors_entry):
             initials = "".join([l[0] for l in author.split(" ")[:-1]])
         authors += "<span class=\"author\">%s %s</span>, " % (
             surname, initials)
-        print(authors[:-2])
     return authors[:-2]
 
 
-def main():
+def bibtex_to_html(bibtex_filename: str, output_filename: str):
     prev_year_int = 0
     html_str = "<meta charset=\"UTF-8\">\n"
-    with open("mmbios.bib", "r") as bib_file:
+    with open(bibtex_filename, "r") as bib_file:
         lines = bib_file.read()
         data = entry.parseString(lines)
         for article in articles:
             author = get_authors(article['author'])
-            # print(article)
             year_int = int(article['year'])
             if (year_int != prev_year_int):
                 if (prev_year_int != 0):
@@ -163,15 +162,6 @@ def main():
                 pages = "<span class=\"mpgn\">%s</span>" % pages
             except KeyError:
                 pages = ""
-            # print(author)
-            # print(year)
-            # print(title)
-            # print(journal)
-            # print(vol_issue)
-            # print(pages)
-            # print(doi)
-            # print(pmid)
-            # print(tags)
             formatted_entry = "<p>{}. {} {} <i>{}</i>. {}{}. {} {} {}".format(
                 author, year, title, journal, vol_issue, pages, doi, pmid, tags)
             html_str += "\t\t<li>\n"
@@ -181,11 +171,24 @@ def main():
             prev_year_int = year_int
     html_str += "\t</ul>\n</div>\n"
     # if user didn't provide an output filename, generate one automatically
-    # if (not output_filename):
-    #     output_filename = bibjson_filename.split(".")[0] + ".html"
-    output_filename = "mmbios2.html"
+    if (not output_filename):
+        output_filename = bibjson_filename.split(".")[0] + ".html"
     with open(output_filename, 'w') as out:
         out.write(html_str)
+
+
+def setup_argparser():
+    parser = argparse.ArgumentParser(
+        description="Convert BibJSON to marked up HTML:")
+    parser.add_argument("bibtex", help="BibTeX file to be converted")
+    parser.add_argument(
+        "-o", "--output", help="output html file")
+    return parser.parse_args()
+
+
+def main():
+    args = setup_argparser()
+    bibtex_to_html(args.bibtex, args.output)
 
 
 if __name__ == "__main__":
