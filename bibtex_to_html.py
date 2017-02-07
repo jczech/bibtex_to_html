@@ -91,7 +91,7 @@ def get_authors(authors_entry):
 def bibtex_to_html(bibtex_filename: str, output_filename: str):
     prev_year_int = 0
     html_str = "<meta charset=\"UTF-8\">\n"
-    with open(bibtex_filename, "r") as bib_file:
+    with open(bibtex_filename, "r", encoding="utf8") as bib_file:
         lines = bib_file.read()
         data = entry.parseString(lines)
         for article in articles:
