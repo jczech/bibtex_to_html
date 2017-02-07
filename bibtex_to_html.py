@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from typing import List, Dict
 import pyparsing as pp
 import argparse
 
@@ -123,9 +124,10 @@ def get_vol_issue(article):
             vol_issue = "<span class=\"volume\">%s:</span>" % (vol)
     except KeyError:
         vol_issue = ""
+    return vol_issue
 
 
-def get_tags(article):
+def get_tags(article: Dict):
     tags = ""
     try:
         for tag in article['mendeley-tags'].split(","):
@@ -148,6 +150,7 @@ def get_tags(article):
                 "<a href=\"%s\" class=%s>%s</a> " % (url, tag_type, tag))
     except KeyError:
         pass
+    return tags
 
 
 def get_pages(article):
@@ -157,6 +160,7 @@ def get_pages(article):
         pages = "<span class=\"mpgn\">%s</span>" % pages
     except KeyError:
         pages = ""
+    return pages
 
 
 def bibtex_to_html(bibtex_filename: str, output_filename: str):
