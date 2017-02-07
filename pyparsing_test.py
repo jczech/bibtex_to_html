@@ -2,7 +2,6 @@
 
 import pyparsing as pp
 import re
-from string import lowercase
 from pprint import pprint
 
 link_dict = {
@@ -35,7 +34,6 @@ wrapped_title = lbr + lbr + pp.restOfLine
 wrapped_num = lbr + pp.Word(pp.nums) + rbr
 
 def strip_one(s, l, t):
-    print(t)
     articles[-1][t[0]] = t[1][:-1] 
 
 def strip_two(s, l, t):
@@ -78,28 +76,34 @@ def get_authors(authors_entry):
     authors = ""
     caps = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     for idx, author in enumerate(authors_entry.split(" and ")):
-        try:
-            if "," in author:
-                surname = author.split(", ")[0]
-                initials = "".join([l for l in author.split(", ")[1] if l in caps])
-            else:
-                surname = author.split(" ")[-1]
-                initials = "".join([l[0] for l in author.split(" ")[:-1]])
-            authors += "<span class=\"author\">%s %s</span>, " % (
-                surname, initials)
-        # There's an entry but no surname, so it's prolly an institution
-        except KeyError:
-            assert("Warning!")
-            # authors += "<span class=\"author\">%s</span>, " % (author['literal'])
-    return authors
+        if "," in author:
+            surname = author.split(", ")[0]
+            initials = "".join([l for l in author.split(", ")[1] if l in caps])
+        else:
+            surname = author.split(" ")[-1]
+            initials = "".join([l[0] for l in author.split(" ")[:-1]])
+        authors += "<span class=\"author\">%s %s</span>, " % (
+            surname, initials)
+        print(authors[:-2])
+    return authors[:-2]
 
 
 def main():
+    prev_year_int = 0
+    html_str = "<meta charset=\"UTF-8\">\n"
     with open("mmbios.bib", "r") as bib_file:
         lines = bib_file.read()
         data = entry.parseString(lines)
         for article in articles:
             author = get_authors(article['author'])
+            # print(article)
+            year_int = int(article['year'])
+            if (year_int != prev_year_int):
+                if (prev_year_int != 0):
+                    html_str += "\t</ul>\n</div>\n"
+                html_str += ("<h1 id=\"%d\"><span style=\"color: #993300;\">%d"
+                             "</span>\n</h1>\n" % (year_int, year_int))
+                html_str += "<div class=\"biblio\">\n\t<ul>\n"
             year = "<span class=\"pubdate\">(%s) </span>" % article['year']
             try:
                 title = (
@@ -159,9 +163,29 @@ def main():
                 pages = "<span class=\"mpgn\">%s</span>" % pages
             except KeyError:
                 pages = ""
+            # print(author)
+            # print(year)
+            # print(title)
+            # print(journal)
+            # print(vol_issue)
+            # print(pages)
+            # print(doi)
+            # print(pmid)
+            # print(tags)
             formatted_entry = "<p>{}. {} {} <i>{}</i>. {}{}. {} {} {}".format(
                 author, year, title, journal, vol_issue, pages, doi, pmid, tags)
-            print(formatted_entry)
+            html_str += "\t\t<li>\n"
+            html_str += "\t\t\t%s\n" % formatted_entry
+            html_str += "\t\t\t</p>\n"
+            html_str += "\t\t</li>\n"
+            prev_year_int = year_int
+    html_str += "\t</ul>\n</div>\n"
+    # if user didn't provide an output filename, generate one automatically
+    # if (not output_filename):
+    #     output_filename = bibjson_filename.split(".")[0] + ".html"
+    output_filename = "mmbios2.html"
+    with open(output_filename, 'w') as out:
+        out.write(html_str)
 
 
 if __name__ == "__main__":
