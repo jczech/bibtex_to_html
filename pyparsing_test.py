@@ -98,9 +98,7 @@ def main():
     with open("mmbios.bib", "r") as bib_file:
         lines = bib_file.read()
         data = entry.parseString(lines)
-        # print(data)
         for article in articles:
-            # pprint(article)
             author = get_authors(article['author'])
             year = "<span class=\"pubdate\">(%s) </span>" % article['year']
             try:
@@ -112,21 +110,58 @@ def main():
                     "<span class=\"title\" style=\"color: #2ebbbd;\">"
                     "%s</span>" % (article['title']))
             journal = "<span class=\"journal\">%s</span>" % article['journal']
-            print("-"*40)
-            print(journal)
-            print(author)
-            print(title)
-            # print(year)
-            # if type(d) == str:
-            #     print("-"*40)
-            # else:
-            #     if d[0] == "author":
-            #         print(get_authors(d[1]))
-            #     elif d[0] == "year":
-            #         print("<span class=\"pubdate\">(%s) </span>" % d[1])
-            #     else:
-            #         print(d)
-            #         # print(d[1])
+            vol_issue = ""
+            try:
+                doi = "doi: %s." % article['doi']
+            except KeyError:
+                doi = ""
+            try:
+                pmid = "<span class=\"pmid\">PMID:%s</span>" % article['pmid']
+            except KeyError:
+                pmid = ""
+            try:
+                vol = article['volume']
+                try:
+                    issue = article['number']
+                    vol_issue = "<span class=\"volume\">%s(%s):</span>" % (vol, issue)
+
+                except KeyError:
+                    vol_issue = "<span class=\"volume\">%s:</span>" % (vol)
+            except KeyError:
+                vol_issue = ""
+                # print("Warning: no volume listed for the following article:\n%s"
+                #       "\n" % article['title'])
+            tags = ""
+            try:
+                for tag in article['mendeley-tags'].split(","):
+                    if tag.startswith("MMBIOS1-TRD"):
+                        tag = tag[8:]
+                        tag_type = "trd_pub"
+                        url = link_dict[tag]
+                    elif tag.startswith("MMBIOS1-DBP"):
+                        tag = tag[8:]
+                        tag_type = "dbp_pub"
+                        url = link_dict[tag]
+                    elif tag.startswith("MMBIOS1-CSP"):
+                        tag = tag[8:]
+                        tag_type = "csp_pub"
+                        url = "research/collaboration-service"
+                    else:
+                        continue
+                    url = "http://mmbios.org/%s" % url
+                    tags += (
+                        "<a href=\"%s\" class=%s>%s</a> " % (url, tag_type, tag))
+            except KeyError:
+                pass
+            try:
+                pages = article['pages']
+                pages = pages.replace("--", "-")
+                pages = "<span class=\"mpgn\">%s</span>" % pages
+            except KeyError:
+                pages = ""
+            formatted_entry = "<p>{}. {} {} <i>{}</i>. {}{}. {} {} {}".format(
+                author, year, title, journal, vol_issue, pages, doi, pmid, tags)
+            print(formatted_entry)
 
 
 if __name__ == "__main__":
