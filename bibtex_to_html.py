@@ -17,7 +17,8 @@ link_dict = {
 
 articles = []
 
-article_start = pp.Literal("@article").setParseAction(lambda s, l, t: articles.append({}))
+article_start = pp.Literal("@article").setParseAction(
+        lambda s, l, t: articles.append({}))
 inproceedings = pp.Literal("@inproceedings")
 author_year = pp.Suppress(pp.restOfLine)
 comma = pp.Suppress(",")
@@ -25,51 +26,60 @@ eq = pp.Suppress("=")
 
 lbr = pp.Suppress("{")
 rbr = pp.Suppress("}")
-atom = pp.CharsNotIn("{}") 
+atom = pp.CharsNotIn("{}")
 sentence = pp.Group(pp.OneOrMore(atom))
 wrapped = lbr + sentence + rbr + pp.Optional(comma)
 wrapped_messy = lbr + pp.restOfLine
 wrapped_title = lbr + lbr + pp.restOfLine
 wrapped_num = lbr + pp.Word(pp.nums) + rbr
 
+
 def strip_one(s, l, t) -> None:
-    articles[-1][t[0]] = t[1][:-1] 
+    articles[-1][t[0]] = t[1][:-1]
+
 
 def strip_two(s, l, t) -> None:
-    articles[-1][t[0]] = t[1][:-2] 
+    articles[-1][t[0]] = t[1][:-2]
+
 
 def strip_three(s, l, t) -> None:
-    articles[-1][t[0]] = t[1][:-3] 
+    articles[-1][t[0]] = t[1][:-3]
+
 
 def save_url(s, l, t) -> None:
     articles[-1][t[0]] = t[1][0].split(" ")[0]
 
+
 def save_list_entry(s, l, t) -> None:
     articles[-1][t[0]] = t[1][0]
 
+
 def save_string_entry(s, l, t) -> None:
     articles[-1][t[0]] = t[1]
+
 
 authors = ("author" + eq + wrapped_messy).setParseAction(strip_two)
 doi = ("doi" + eq + wrapped).setParseAction(save_list_entry)
 journal = ("journal" + eq + wrapped_messy).setParseAction(strip_two)
 mendeley = ("mendeley-tags" + eq + wrapped).setParseAction(save_list_entry)
-number = ("number" + eq + wrapped_num + comma).setParseAction(save_list_entry) # issue
+issue = ("number" + eq + wrapped_num + comma).setParseAction(save_list_entry)
 pages = ("pages" + eq + wrapped).setParseAction(save_list_entry)
 pmid = ("pmid" + eq + wrapped).setParseAction(save_list_entry)
 publisher = ("publisher" + eq + wrapped).setParseAction(save_list_entry)
 title = ("title" + eq + wrapped_title).setParseAction(strip_three)
 url = ("url" + eq + wrapped).setParseAction(save_url)
-volume = ("volume" + eq + wrapped_num + comma).setParseAction(save_string_entry)
+volume = ("volume" + eq + wrapped_num + comma).setParseAction(
+        save_string_entry)
 year = ("year" + eq + wrapped_num).setParseAction(save_string_entry)
 other = pp.Word(pp.alphas) + eq + pp.restOfLine
 
-unit = (authors | year | title | journal | volume | number | pages | doi |
+unit = (authors | year | title | journal | volume | issue | pages | doi |
         pmid | mendeley | url | pp.Suppress(other))
 
 entry = pp.OneOrMore(
     (article_start | inproceedings) + lbr + author_year + pp.OneOrMore(unit) +
     rbr)
+
 
 def get_authors(authors_entry: str):
     authors = ""
@@ -85,13 +95,15 @@ def get_authors(authors_entry: str):
             surname, initials)
     return authors[:-2]
 
+
 def get_title(article):
     if article['title'].endswith("."):
         article['title'] = article['title'][:-1]
     try:
         title = (
             "<span class=\"title\" style=\"color: #2ebbbd;\">"
-            "<a href = \"%s\">%s</a></span>" % (article['url'], article['title']))
+            "<a href = \"%s\">%s</a></span>" % (
+                article['url'], article['title']))
     except KeyError:
         title = (
             "<span class=\"title\" style=\"color: #2ebbbd;\">"
@@ -104,13 +116,14 @@ def get_vol_issue(article):
     try:
         vol = article['volume']
         try:
-            issue = article['number']
+            issue = article['issue']
             vol_issue = "<span class=\"volume\">%s(%s):</span>" % (vol, issue)
 
         except KeyError:
             vol_issue = "<span class=\"volume\">%s:</span>" % (vol)
     except KeyError:
         vol_issue = ""
+
 
 def get_tags(article):
     tags = ""
