@@ -5,7 +5,6 @@ import pyparsing as pp
 import argparse
 
 
-
 class BibTexParser():
     link_dict = {
         "DBP1": "research/driving-biomedical-projects/glutamate-transport",
@@ -130,7 +129,7 @@ def get_vol_issue(article: Dict) -> str:
     return vol_issue
 
 
-def get_tags(article: Dict):
+def get_tags(article: Dict) -> str:
     tags = ""
     try:
         for tag in article['mendeley-tags'].split(","):
@@ -175,6 +174,8 @@ def bibtex_to_html(bibtex_filename: str, output_filename: str) -> None:
         for article in BibTexParser.articles:
             author = get_authors(article['author'])
             year_int = int(article['year'])
+            # Add the year header at year boundaries (e.g. when we transition
+            # from 2017 to 2016)
             if (year_int != prev_year_int):
                 if (prev_year_int != 0):
                     html_str += "\t</ul>\n</div>\n"
@@ -195,6 +196,7 @@ def bibtex_to_html(bibtex_filename: str, output_filename: str) -> None:
             vol_issue = get_vol_issue(article)
             tags = get_tags(article)
             pages = get_pages(article)
+            # Put it all together
             formatted_entry = "<p>{}. {} {}. <i>{}</i>. {}{}. {} {} {}".format(
                 author, year, title, journal, vol_issue, pages, doi, pmid,
                 tags)
