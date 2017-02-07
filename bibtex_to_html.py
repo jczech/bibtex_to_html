@@ -175,7 +175,7 @@ def bibtex_to_html(bibtex_filename: str, output_filename: str):
     html_str += "\t</ul>\n</div>\n"
     # if user didn't provide an output filename, generate one automatically
     if (not output_filename):
-        output_filename = bibjson_filename.split(".")[0] + ".html"
+        output_filename = bibtex_filename.split(".")[0] + ".html"
     with open(output_filename, 'w') as out:
         out.write(html_str)
 
