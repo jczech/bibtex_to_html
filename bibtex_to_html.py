@@ -176,7 +176,7 @@ def bibtex_to_html(bibtex_filename: str, output_filename: str):
     # if user didn't provide an output filename, generate one automatically
     if (not output_filename):
         output_filename = bibtex_filename.split(".")[0] + ".html"
-    with open(output_filename, 'w') as out:
+    with open(output_filename, 'w', encoding="UTF8") as out:
         out.write(html_str)
 
 
