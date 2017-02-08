@@ -1,4 +1,4 @@
-# Convert BibJSON and BibTeX to HTML
+# Convert BibTeX to HTML
 
 ## Overview
 
