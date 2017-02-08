@@ -18,7 +18,7 @@ class BibTexParser():
         "CSP":  "research/collaboration-service",
     }
 
-    articles = []
+    articles = []  # type: List[Dict]
 
     article_start = pp.Literal("@article").setParseAction(
             lambda s, l, t: BibTexParser.articles.append({}))
@@ -36,36 +36,30 @@ class BibTexParser():
     wrapped_title = lbr + lbr + pp.restOfLine
     wrapped_num = lbr + pp.Word(pp.nums) + rbr
 
-
-    def strip_one(s, l, t) -> None:
+    def strip_one(t) -> None:
         BibTexParser.articles[-1][t[0]] = t[1][:-1]
 
-
-    def strip_two(s, l, t) -> None:
+    def strip_two(t) -> None:
         BibTexParser.articles[-1][t[0]] = t[1][:-2]
 
-
-    def strip_three(s, l, t) -> None:
+    def strip_three(t) -> None:
         BibTexParser.articles[-1][t[0]] = t[1][:-3]
 
-
-    def save_url(s, l, t) -> None:
+    def save_url(t) -> None:
         BibTexParser.articles[-1][t[0]] = t[1][0].split(" ")[0]
 
-
-    def save_list_entry(s, l, t) -> None:
+    def save_list_entry(t) -> None:
         BibTexParser.articles[-1][t[0]] = t[1][0]
 
-
-    def save_string_entry(s, l, t) -> None:
+    def save_string_entry(t) -> None:
         BibTexParser.articles[-1][t[0]] = t[1]
-
 
     authors = ("author" + eq + wrapped_messy).setParseAction(strip_two)
     doi = ("doi" + eq + wrapped).setParseAction(save_list_entry)
     journal = ("journal" + eq + wrapped_messy).setParseAction(strip_two)
     mendeley = ("mendeley-tags" + eq + wrapped).setParseAction(save_list_entry)
-    issue = ("number" + eq + wrapped_num + comma).setParseAction(save_list_entry)
+    issue = ("number" + eq + wrapped_num + comma).setParseAction(
+             save_list_entry)
     pages = ("pages" + eq + wrapped).setParseAction(save_list_entry)
     pmid = ("pmid" + eq + wrapped).setParseAction(save_list_entry)
     publisher = ("publisher" + eq + wrapped).setParseAction(save_list_entry)
@@ -80,8 +74,8 @@ class BibTexParser():
             pmid | mendeley | url | pp.Suppress(other))
 
     entry = pp.OneOrMore(
-        (article_start | inproceedings) + lbr + author_year + pp.OneOrMore(unit) +
-        rbr)
+        (article_start | inproceedings) + lbr + author_year +
+        pp.OneOrMore(unit) + rbr)
 
 
 def get_authors(authors_entry: str) -> str:
@@ -170,7 +164,7 @@ def bibtex_to_html(bibtex_filename: str, output_filename: str) -> None:
     html_str = "<meta charset=\"UTF-8\">\n"
     with open(bibtex_filename, "r", encoding="utf8") as bib_file:
         lines = bib_file.read()
-        data = BibTexParser.entry.parseString(lines)
+        BibTexParser.entry.parseString(lines)
         for article in BibTexParser.articles:
             author = get_authors(article['author'])
             year_int = int(article['year'])
