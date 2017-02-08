@@ -14,7 +14,8 @@ On Ubuntu, you can just do the following:
 
     sudo pip3 install pyparsing  
 
-On Windows, you can use anaconda.
+On Windows, you might want to use
+[anaconda](https://www.continuum.io/downloads).
 
 ## How to use
 
