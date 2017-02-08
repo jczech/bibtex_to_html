@@ -159,12 +159,37 @@ def get_pages(article: Dict) -> str:
     return pages
 
 
+def replace_tex_symbols(lines):
+    replace_dict = {
+        r"{\'{a}}": "á",
+        r"{\'{e}}": "é",
+        r"{\'{i}}": "í",
+        r"{\"{u}}": "ű",
+        r"{\^{i}}": "î",
+        r"{\v{c}}": "č",
+        r"{\'{o}}": "ó",
+        r"{\%}": "%",
+        r"{\#}": "#",
+        r"{\_}": "_",
+        r"{\~{}}": "~",
+        r"{\textless}": "",
+        r"{\&}": "&",
+        r"{\textgreater}": "",
+        r"$\mu$": "μ",
+    }
+
+    for key in replace_dict:
+        lines = lines.replace(key, replace_dict[key])
+    return lines
+
+
 def bibtex_to_html(bibtex_filename: str, output_filename: str) -> None:
     prev_year_int = 0
     html_str = "<meta charset=\"UTF-8\">\n"
     with open(bibtex_filename, "r", encoding="utf8") as bib_file:
         lines = bib_file.read()
-        BibTexParser.entry.parseString(lines)
+        formatted_lines = replace_tex_symbols(lines)
+        BibTexParser.entry.parseString(formatted_lines)
         for article in BibTexParser.articles:
             author = get_authors(article['author'])
             year_int = int(article['year'])
