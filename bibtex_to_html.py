@@ -125,6 +125,7 @@ def get_vol_issue(article: Dict) -> str:
 
 def get_tags(article: Dict) -> str:
     tags = ""
+    in_press = False
     try:
         for tag in article['mendeley-tags'].split(","):
             if tag.startswith("MMBIOS1-TRD"):
@@ -139,11 +140,15 @@ def get_tags(article: Dict) -> str:
                 tag = tag[8:]
                 tag_type = "csp_pub"
                 url = "research/collaboration-service"
+            elif tag.startswith("INPRESS"):
+                in_press = True
+                continue
             else:
                 continue
             url = "http://mmbios.org/%s" % url
             tags += (
                 "<a href=\"%s\" class=%s>%s</a> " % (url, tag_type, tag))
+        tags += "in press"
     except KeyError:
         pass
     return tags
@@ -169,6 +174,7 @@ def replace_tex_symbols(lines):
         r"{\v{c}}": "č",
         r"{\'{o}}": "ó",
         r"{\{o}}": "ø",
+        r"{\o}": "ø",
         r"{\%}": "%",
         r"{\#}": "#",
         r"{\_}": "_",
