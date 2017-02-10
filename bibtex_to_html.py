@@ -148,7 +148,8 @@ def get_tags(article: Dict) -> str:
             url = "http://mmbios.org/%s" % url
             tags += (
                 "<a href=\"%s\" class=%s>%s</a> " % (url, tag_type, tag))
-        tags += "in press"
+        if in_press:
+            tags += "in press"
     except KeyError:
         pass
     return tags
@@ -222,10 +223,16 @@ def bibtex_to_html(bibtex_filename: str, output_filename: str) -> None:
             vol_issue = get_vol_issue(article)
             tags = get_tags(article)
             pages = get_pages(article)
+            vol_issue_pages = vol_issue + pages
+            if vol_issue_pages:
+                print(vol_issue_pages)
+                vol_issue_pages += "."
+            else:
+                print("NOTHING")
+                
             # Put it all together
-            formatted_entry = "<p>{}. {} {}. <i>{}</i>. {}{}. {} {} {}".format(
-                author, year, title, journal, vol_issue, pages, doi, pmid,
-                tags)
+            formatted_entry = "<p>{}. {} {}. <i>{}</i>. {} {} {} {}".format(
+                author, year, title, journal, vol_issue_pages, doi, pmid, tags)
             html_str += "\t\t<li>\n"
             html_str += "\t\t\t%s\n" % formatted_entry
             html_str += "\t\t\t</p>\n"
