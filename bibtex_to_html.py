@@ -174,6 +174,7 @@ def replace_tex_symbols(lines):
         r"{\^{i}}": "î",
         r"{\v{c}}": "č",
         r"{\'{o}}": "ó",
+        r"{\"{o}}": "ó",
         r"{\{o}}": "ø",
         r"{\o}": "ø",
         r"{\%}": "%",
@@ -225,10 +226,7 @@ def bibtex_to_html(bibtex_filename: str, output_filename: str) -> None:
             pages = get_pages(article)
             vol_issue_pages = vol_issue + pages
             if vol_issue_pages:
-                print(vol_issue_pages)
                 vol_issue_pages += "."
-            else:
-                print("NOTHING")
                 
             # Put it all together
             formatted_entry = "<p>{}. {} {}. <i>{}</i>. {} {} {} {}".format(
