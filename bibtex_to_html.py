@@ -7,15 +7,23 @@ import argparse
 
 class BibTexParser():
     link_dict = {
-        "DBP1": "research/driving-biomedical-projects/glutamate-transport",
-        "DBP2": "research/driving-biomedical-projects/synaptic-signaling",
-        "DBP3": "research/driving-biomedical-projects/dat-function",
-        "DBP4": "research/driving-biomedical-projects/t-cell-signaling",
-        "DBP5": "research/driving-biomedical-projects/neural-circuits",
-        "TRD1": "research/technology-research-and-development/molecular-modeling",
-        "TRD2": "research/technology-research-and-development/cell-modeling",
-        "TRD3": "research/technology-research-and-development/image-processing",
-        "CSP":  "research/collaboration-service",
+
+        "MMBIOS1-DBP1": ("DBP1", "research/driving-biomedical-projects/glutamate-transport"),
+        "MMBIOS1-DBP2": ("DBP2", "research/driving-biomedical-projects/synaptic-signaling"),
+        "MMBIOS1-DBP3": ("DBP3", "research/driving-biomedical-projects/dat-function"),
+        "MMBIOS1-DBP4": ("DBP4", "research/driving-biomedical-projects/t-cell-signaling"),
+        "MMBIOS1-DBP5": ("DBP5", "research/driving-biomedical-projects/neural-circuits"),
+
+        "MMBIOS1-TRD1": ("MM", "research/technology-research-and-development/molecular-modeling"),
+        "MMBIOS1-TRD2": ("CM", "research/technology-research-and-development/cell-modeling"),
+        "MMBIOS1-TRD3": ("IP", "research/technology-research-and-development/image-processing"),
+
+        "MMBIOS2-TRD1": ("MM", "research/technology-research-and-development/molecular-modeling"),
+        "MMBIOS2-TRD2": ("CM", "research/technology-research-and-development/cell-modeling"),
+        "MMBIOS2-TRD3": ("RBM", "research/technology-research-and-development/rule-based-modeling"),
+        "MMBIOS2-TRD4": ("IP", "research/technology-research-and-development/image-processing"),
+
+        "MMBIOS1-CSP": ("CSP",  "research/collaboration-service"),
     }
 
     articles = []  # type: List[Dict]
@@ -128,18 +136,17 @@ def get_tags(article: Dict) -> str:
     in_press = False
     try:
         for tag in article['mendeley-tags'].split(","):
-            if tag.startswith("MMBIOS1-TRD"):
-                tag = tag[8:]
-                tag_type = "trd_pub"
-                url = BibTexParser.link_dict[tag]
-            elif tag.startswith("MMBIOS1-DBP"):
-                tag = tag[8:]
-                tag_type = "dbp_pub"
-                url = BibTexParser.link_dict[tag]
-            elif tag.startswith("MMBIOS1-CSP"):
-                tag = tag[8:]
-                tag_type = "csp_pub"
-                url = "research/collaboration-service"
+            if tag.startswith("MMBIOS"):
+                tag_text = BibTexParser.link_dict[tag][0]
+                if tag.startswith("MMBIOS1-TRD"):
+                    tag_class = "trd_pub"
+                    url = BibTexParser.link_dict[tag][1]
+                elif tag.startswith("MMBIOS1-DBP"):
+                    tag_class = "dbp_pub"
+                    url = BibTexParser.link_dict[tag][1]
+                elif tag.startswith("MMBIOS1-CSP"):
+                    tag_class = "csp_pub"
+                    url = "research/collaboration-service"
             elif tag.startswith("INPRESS"):
                 in_press = True
                 continue
@@ -147,7 +154,7 @@ def get_tags(article: Dict) -> str:
                 continue
             url = "http://mmbios.org/%s" % url
             tags += (
-                "<a href=\"%s\" class=%s>%s</a> " % (url, tag_type, tag))
+                "<a href=\"%s\" class=%s>%s</a> " % (url, tag_class, tag_text))
         if in_press:
             tags += "in press"
     except KeyError:
@@ -193,6 +200,7 @@ def replace_tex_symbols(lines):
 
 
 def bibtex_to_html(bibtex_filename: str, output_filename: str) -> None:
+    """ Takes a string representing a bibtex file and creates an html file """
     prev_year_int = 0
     html_str = "<meta charset=\"UTF-8\">\n"
     with open(bibtex_filename, "r", encoding="utf8") as bib_file:
