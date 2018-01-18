@@ -133,18 +133,23 @@ def get_vol_issue(article: Dict) -> str:
 
 def get_tags(article: Dict) -> str:
     tags = ""
+    url = ""
+    tag_class = ""
+    tag_text = ""
     in_press = False
     try:
         for tag in article['mendeley-tags'].split(","):
             if tag.startswith("MMBIOS"):
-                tag_text = BibTexParser.link_dict[tag][0]
                 if tag.startswith("MMBIOS1-TRD"):
+                    tag_text = BibTexParser.link_dict[tag][0]
                     tag_class = "trd_pub"
                     url = BibTexParser.link_dict[tag][1]
                 elif tag.startswith("MMBIOS1-DBP"):
+                    tag_text = BibTexParser.link_dict[tag][0]
                     tag_class = "dbp_pub"
                     url = BibTexParser.link_dict[tag][1]
                 elif tag.startswith("MMBIOS1-CSP"):
+                    tag_text = tag[8:]
                     tag_class = "csp_pub"
                     url = "research/collaboration-service"
             elif tag.startswith("INPRESS"):
@@ -155,10 +160,10 @@ def get_tags(article: Dict) -> str:
             url = "http://mmbios.org/%s" % url
             tags += (
                 "<a href=\"%s\" class=%s>%s</a> " % (url, tag_class, tag_text))
-        if in_press:
-            tags += "in press"
     except KeyError:
         pass
+    if in_press:
+        tags += "in press"
     return tags
 
 
