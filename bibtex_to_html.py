@@ -137,21 +137,25 @@ def get_tags(article: Dict) -> str:
     tag_class = ""
     tag_text = ""
     in_press = False
+    # import ipdb
+    # ipdb.set_trace(context=20)
     try:
         for tag in article['mendeley-tags'].split(","):
             if tag.startswith("MMBIOS"):
-                if tag.startswith("MMBIOS1-TRD"):
+                if tag.startswith("MMBIOS1-TRD") or tag.startswith("MMBIOS2-TRD"):
                     tag_text = BibTexParser.link_dict[tag][0]
                     tag_class = "trd_pub"
                     url = BibTexParser.link_dict[tag][1]
-                elif tag.startswith("MMBIOS1-DBP"):
+                elif tag.startswith("MMBIOS1-DBP") or tag.startswith("MMBIOS2-DBP"):
                     tag_text = BibTexParser.link_dict[tag][0]
                     tag_class = "dbp_pub"
                     url = BibTexParser.link_dict[tag][1]
-                elif tag.startswith("MMBIOS1-CSP"):
+                elif tag.startswith("MMBIOS1-CSP") or tag.startswith("MMBIOS2-CSP"):
                     tag_text = tag[8:]
                     tag_class = "csp_pub"
                     url = "research/collaboration-service"
+                else:
+                    continue
             elif tag.startswith("INPRESS"):
                 in_press = True
                 continue
