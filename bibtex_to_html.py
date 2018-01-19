@@ -200,6 +200,8 @@ def replace_tex_symbols(lines):
         r"{\textless}": "",
         r"{\&}": "&",
         r"{\textgreater}": "",
+        r"$\alpha$": "α",
+        r"$\beta$": "β",
         r"$\mu$": "μ",
     }
 
