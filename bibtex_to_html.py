@@ -203,6 +203,7 @@ def replace_tex_symbols(lines):
         r"$\alpha$": "α",
         r"$\beta$": "β",
         r"$\mu$": "μ",
+        r"$\Omega$": "Ω",
     }
 
     for key in replace_dict:
